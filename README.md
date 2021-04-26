@@ -1,3 +1,5 @@
+# The README is a lie
+
 ## A simple Python IoT code with BME280 sensor
 
 This is a simple project that prints the data from the BME280 sensor connected to a Raspberry Pi running [balena](https://balena.io).
