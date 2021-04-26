@@ -1,6 +1,11 @@
-# The README is a lie
+# EE 475 Embedded Systems Capstone
+# Team 5
+### Christian Lancaster, Jamie Thorup, Joseph Chao, Morgan McCandless, Rouen de la O
 
-## A simple Python IoT code with BME280 sensor
+## Watchdog Home Security System
+
+
+### Delete some of the following
 
 This is a simple project that prints the data from the BME280 sensor connected to a Raspberry Pi running [balena](https://balena.io).
 
