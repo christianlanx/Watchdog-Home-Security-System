@@ -18,7 +18,10 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+#include <stdio.h>
 #include "main.h"
+//#include "registers.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -94,7 +97,17 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+      /*
+      if (((int)(*GPIOA_IDR) & 0x4) == 0x4) {
+          (*GPIOA_ODR) |= 0x2;
+      } else {
+          (*GPIOA_ODR) &= ~0x2;
+      }*/
+      if (GPIOA->IDR & 0x4 == 0x4) {
+          GPIOA->ODR |= 0x2;
+      } else {
+          GPIOA->ODR &= ~0x2;
+      }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
