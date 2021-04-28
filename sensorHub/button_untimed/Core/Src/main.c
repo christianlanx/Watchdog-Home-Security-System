@@ -97,17 +97,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-      /*
-      if (((int)(*GPIOA_IDR) & 0x4) == 0x4) {
-          (*GPIOA_ODR) |= 0x2;
+      if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2)) {
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
       } else {
-          (*GPIOA_ODR) &= ~0x2;
-      }*/
-      if (GPIOA->IDR & 0x4 == 0x4) {
-          GPIOA->ODR |= 0x2;
-      } else {
-          GPIOA->ODR &= ~0x2;
+          HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
       }
+      //MX_USB_HOST_Process();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
