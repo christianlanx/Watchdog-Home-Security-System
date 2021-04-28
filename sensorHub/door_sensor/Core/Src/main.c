@@ -110,12 +110,20 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+    int released = 0;
   while (1)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
+      if (~released && ~HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2)) {
+          HAL_TIM_Base_Start(&htim2);
+      } else if (released && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2)) {
+          MX_TIM2_Init();
+      }
 
     /* USER CODE BEGIN 3 */
+    
+      
   }
   /* USER CODE END 3 */
 }
