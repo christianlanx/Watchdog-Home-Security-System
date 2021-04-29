@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
   28:Core/Src/stm32f4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
   29:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE BEGIN TD */
   30:Core/Src/stm32f4xx_hal_msp.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 2
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 2
 
 
   31:Core/Src/stm32f4xx_hal_msp.c **** /* USER CODE END TD */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
   43 0004 0021     		movs	r1, #0
   44 0006 0091     		str	r1, [sp]
   45              		.loc 1 70 3 view .LVU3
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 3
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 3
 
 
   46 0008 0C4B     		ldr	r3, .L3
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
   91              		.section	.text.HAL_I2C_MspInit,"ax",%progbits
   92              		.align	1
   93              		.global	HAL_I2C_MspInit
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 4
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 4
 
 
   94              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
   97:Core/Src/stm32f4xx_hal_msp.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
   98:Core/Src/stm32f4xx_hal_msp.c ****     /**I2C1 GPIO Configuration
   99:Core/Src/stm32f4xx_hal_msp.c ****     PB6     ------> I2C1_SCL
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 5
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 5
 
 
  100:Core/Src/stm32f4xx_hal_msp.c ****     PB9     ------> I2C1_SDA
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  102:Core/Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
  163              		.loc 1 102 25 is_stmt 0 view .LVU30
  164 0034 4FF41073 		mov	r3, #576
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 6
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 6
 
 
  165 0038 0393     		str	r3, [sp, #12]
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  204              	.L10:
  205              		.align	2
  206              	.L9:
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 7
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 7
 
 
  207 0064 00540040 		.word	1073763328
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  246 0010 23F40013 		bic	r3, r3, #2097152
  247 0014 1364     		str	r3, [r2, #64]
  133:Core/Src/stm32f4xx_hal_msp.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 8
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 8
 
 
  134:Core/Src/stm32f4xx_hal_msp.c ****     /**I2C1 GPIO Configuration
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  155:Core/Src/stm32f4xx_hal_msp.c **** void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
  156:Core/Src/stm32f4xx_hal_msp.c **** {
  283              		.loc 1 156 1 is_stmt 1 view -0
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 9
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 9
 
 
  284              		.cfi_startproc
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  180:Core/Src/stm32f4xx_hal_msp.c **** 
  181:Core/Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Pin = I2S3_MCK_Pin|I2S3_SCK_Pin|I2S3_SD_Pin;
  182:Core/Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 10
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 10
 
 
  183:Core/Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  349 0038 1A6B     		ldr	r2, [r3, #48]
  350 003a 42F00102 		orr	r2, r2, #1
  351 003e 1A63     		str	r2, [r3, #48]
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 11
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 11
 
 
  166:Core/Src/stm32f4xx_hal_msp.c ****     __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  389 0068 0795     		str	r5, [sp, #28]
  179:Core/Src/stm32f4xx_hal_msp.c **** 
  390              		.loc 1 179 5 is_stmt 1 view .LVU91
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 12
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 12
 
 
  391 006a 03A9     		add	r1, sp, #12
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  434              		.thumb_func
  435              		.fpu fpv4-sp-d16
  437              	HAL_I2S_MspDeInit:
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 13
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 13
 
 
  438              	.LVL16:
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  459              		.loc 1 226 1 view .LVU110
  460 000a 08BD     		pop	{r3, pc}
  461              	.LVL18:
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 14
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 14
 
 
  462              	.L29:
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  505              		@ args = 0, pretend = 0, frame = 32
  506              		@ frame_needed = 0, uses_anonymous_args = 0
  507              		.loc 1 235 1 is_stmt 0 view .LVU117
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 15
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 15
 
 
  508 0000 00B5     		push	{lr}
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  534              	.LCFI15:
  535              		.cfi_remember_state
  536              		.cfi_def_cfa_offset 4
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 16
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 16
 
 
  537              		@ sp needed
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  251:Core/Src/stm32f4xx_hal_msp.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  578              		.loc 1 251 25 is_stmt 0 view .LVU137
  579 004c E023     		movs	r3, #224
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 17
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 17
 
 
  580 004e 0393     		str	r3, [sp, #12]
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  619              		.loc 1 272 1 is_stmt 1 view -0
  620              		.cfi_startproc
  621              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 18
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 18
 
 
  622              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  652 001a FFF7FEFF 		bl	HAL_GPIO_DeInit
  653              	.LVL31:
  654              		.loc 1 293 1 view .LVU156
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 19
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 19
 
 
  655 001e F4E7     		b	.L38
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  308:Core/Src/stm32f4xx_hal_msp.c ****     /* Peripheral clock enable */
  309:Core/Src/stm32f4xx_hal_msp.c ****     __HAL_RCC_TIM2_CLK_ENABLE();
  696              		.loc 1 309 5 is_stmt 1 view .LVU162
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 20
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 20
 
 
  697              	.LBB11:
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  744              	.LFB138:
  319:Core/Src/stm32f4xx_hal_msp.c **** 
  320:Core/Src/stm32f4xx_hal_msp.c **** /**
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 21
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 21
 
 
  321:Core/Src/stm32f4xx_hal_msp.c **** * @brief TIM_Base MSP De-Initialization
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  774              	.LVL39:
  337:Core/Src/stm32f4xx_hal_msp.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
  775              		.loc 1 337 5 is_stmt 0 view .LVU180
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 22
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 22
 
 
  776 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
@@ -1284,37 +1284,37 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 1
  797              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  798              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
  799              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s 			page 23
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_hal_msp.c
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:18     .text.HAL_MspInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:87     .text.HAL_MspInit:000000000000003c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:92     .text.HAL_I2C_MspInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:99     .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:207    .text.HAL_I2C_MspInit:0000000000000064 $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:214    .text.HAL_I2C_MspDeInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:221    .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:266    .text.HAL_I2C_MspDeInit:000000000000002c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:273    .text.HAL_I2S_MspInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:280    .text.HAL_I2S_MspInit:0000000000000000 HAL_I2S_MspInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:423    .text.HAL_I2S_MspInit:000000000000008c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:430    .text.HAL_I2S_MspDeInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:437    .text.HAL_I2S_MspDeInit:0000000000000000 HAL_I2S_MspDeInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:485    .text.HAL_I2S_MspDeInit:000000000000002c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:493    .text.HAL_SPI_MspInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:500    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:603    .text.HAL_SPI_MspInit:0000000000000064 $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:609    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:616    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:659    .text.HAL_SPI_MspDeInit:0000000000000020 $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:666    .text.HAL_TIM_Base_MspInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:673    .text.HAL_TIM_Base_MspInit:0000000000000000 HAL_TIM_Base_MspInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:735    .text.HAL_TIM_Base_MspDeInit:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:742    .text.HAL_TIM_Base_MspDeInit:0000000000000000 HAL_TIM_Base_MspDeInit
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//cc74VHwa.s:783    .text.HAL_TIM_Base_MspDeInit:0000000000000020 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:18     .text.HAL_MspInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:87     .text.HAL_MspInit:000000000000003c $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:92     .text.HAL_I2C_MspInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:99     .text.HAL_I2C_MspInit:0000000000000000 HAL_I2C_MspInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:207    .text.HAL_I2C_MspInit:0000000000000064 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:214    .text.HAL_I2C_MspDeInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:221    .text.HAL_I2C_MspDeInit:0000000000000000 HAL_I2C_MspDeInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:266    .text.HAL_I2C_MspDeInit:000000000000002c $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:273    .text.HAL_I2S_MspInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:280    .text.HAL_I2S_MspInit:0000000000000000 HAL_I2S_MspInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:423    .text.HAL_I2S_MspInit:000000000000008c $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:430    .text.HAL_I2S_MspDeInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:437    .text.HAL_I2S_MspDeInit:0000000000000000 HAL_I2S_MspDeInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:485    .text.HAL_I2S_MspDeInit:000000000000002c $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:493    .text.HAL_SPI_MspInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:500    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:603    .text.HAL_SPI_MspInit:0000000000000064 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:609    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:616    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:659    .text.HAL_SPI_MspDeInit:0000000000000020 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:666    .text.HAL_TIM_Base_MspInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:673    .text.HAL_TIM_Base_MspInit:0000000000000000 HAL_TIM_Base_MspInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:735    .text.HAL_TIM_Base_MspDeInit:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:742    .text.HAL_TIM_Base_MspDeInit:0000000000000000 HAL_TIM_Base_MspDeInit
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccuLXFBj.s:783    .text.HAL_TIM_Base_MspDeInit:0000000000000020 $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriorityGrouping
