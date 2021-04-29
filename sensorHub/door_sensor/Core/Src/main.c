@@ -115,20 +115,29 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
     int released = 0;
+  
   while (1)
   {
     /* USER CODE END WHILE */
     MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+    
     if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && !released) {
 	    released = 1;
-	    HAL_TIM_Base_Start(&htim2);
+	    //HAL_TIM_Base_Start(&htim2);
+	    HAL_TIM_Base_Start_IT(&htim2);
+	   // HAL_NVIC_EnableIRQ(TIM2_IRQn);
     } else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && released) {
-	    MX_TIM2_Init();
+	    //HAL_TIM_Base_Stop(&htim2);
+	    HAL_TIM_Base_Stop_IT(&htim2);
+	    //HAL_NVIC_DisableIRQ(TIM2_IRQn);
+	    TIM2->CNT = 0;
 	    released = 0;
+	    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
     }  
   }
+  
   /* USER CODE END 3 */
 }
 
