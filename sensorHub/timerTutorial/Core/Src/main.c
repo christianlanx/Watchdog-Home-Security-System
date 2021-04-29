@@ -120,9 +120,9 @@ int main(void)
       MX_USB_HOST_Process();
       static int timerValue;
       timerValue = __HAL_TIM_GetCounter(&htim2);
-      if (timerValue == 10) {
+      if (timerValue == 0) {
        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
-      } else if (timerValue == 5000) {
+      } else if (timerValue == 1000) {
        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
       }
       /* USER CODE END WHILE */
