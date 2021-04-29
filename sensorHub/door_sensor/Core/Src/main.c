@@ -118,11 +118,16 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
+    //MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
-    
-      
+    if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && !released) {
+	    released = 1;
+	    HAL_TIM_Base_Start(&htim2);
+    } else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && released) {
+	    MX_TIM2_Init();
+	    released = 0;
+    }  
   }
   /* USER CODE END 3 */
 }
