@@ -86,6 +86,7 @@ void Error_Handler(void);
 #define ENVELOPE_GPIO_Port GPIOC
 #define GATE_Pin GPIO_PIN_0
 #define GATE_GPIO_Port GPIOB
+#define GATE_EXTI_IRQn EXTI0_IRQn
 #define BOOT1_Pin GPIO_PIN_2
 #define BOOT1_GPIO_Port GPIOB
 #define CLK_IN_Pin GPIO_PIN_10
