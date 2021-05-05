@@ -57,9 +57,10 @@ services:
     build: ./balena-cam
     privileged: true
     restart: always
-    network_mode: "host"
     # networks:
     #   - backend
+    ports:
+      - "5169:5150"
     container_name: balena_cam
     labels:
       io.balena.features.kernel-modules: '1'
