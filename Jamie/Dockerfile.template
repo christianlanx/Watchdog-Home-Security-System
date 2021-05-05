@@ -23,3 +23,5 @@ ENV UDEV=1
 
 # main.py will run when the container starts up on the device
 CMD ["python","-u","src/main.py"]
+
+# G
