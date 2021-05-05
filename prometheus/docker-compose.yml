@@ -1,0 +1,74 @@
+# HALO
+version: "2.0"
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    # networks:
+    #   - frontend
+    #   - backend
+    depends_on:
+      - prometheus
+      - grafana
+    container_name: nginx
+  prometheus:
+    build: ./prometheus
+    ports:
+      - "9090:9090"
+    # networks:
+    #   - frontend
+    #   - backend
+    depends_on: 
+      - sensor
+    container_name: prometheus
+  grafana:
+    build: ./grafana
+    ports: 
+      - "3000:3000"
+    # environment:
+      # - 'GF_AUTH_ANONYMOUS_ENABLED=true'
+      # - 'GF_SERVER_HTTP_PORT=3000'
+      # - 'GF_SERVER_DOMAIN=nginx'
+      # - 'GF_SERVER_SERVE_FROM_SUB_PATH=true'
+      # - 'GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana/'
+    # networks:
+    #     - frontend
+    #     - backend
+    volumes:
+        - grafana_etc:/etc/grafana
+        - grafana_usr:/usr/share/grafana 
+        - grafana_var:/var/lib/grafana
+    container_name: grafana
+  sensor:
+    build: ./sensor
+    privileged: true
+    ports:
+      - "5000:5000"
+    # networks:
+    #   - backend
+    container_name: sensor
+  node_exporter:
+    build: ./node_exporter
+    # networks:
+    #   - backend
+    container_name: node_exporter
+  balena-cam:
+    build: ./balena-cam
+    privileged: true
+    restart: always
+    network_mode: "host"
+    # networks:
+    #   - backend
+    container_name: balena_cam
+    labels:
+      io.balena.features.kernel-modules: '1'
+
+# networks:
+#     frontend:
+#     backend:
+
+volumes:
+    grafana_etc:
+    grafana_usr:
+    grafana_var:
