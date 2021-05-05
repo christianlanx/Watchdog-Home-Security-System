@@ -1,0 +1,4 @@
+adafruit-circuitpython-bme280
+RPi.GPIO
+adafruit-blinka
+flask
