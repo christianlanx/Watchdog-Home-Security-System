@@ -1,7 +1,10 @@
 FROM arm64v8/nginx:latest
 
-# # Remove default sites
-# RUN rm -rf /usr/share/nginx/html/*
+# Remove default sites
+RUN rm -rf /usr/share/nginx/html/*
+
+# Add our site
+COPY html /etc/nginx/html
 
 # Add configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
