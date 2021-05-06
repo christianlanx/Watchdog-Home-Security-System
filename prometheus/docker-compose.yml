@@ -12,6 +12,11 @@ services:
       - prometheus
       - grafana
     container_name: nginx
+  nodejs-server:
+    build: ./front-end-master
+    ports:
+      - "3333:3333"
+    container_name: nodejs-server
   prometheus:
     build: ./prometheus
     ports:

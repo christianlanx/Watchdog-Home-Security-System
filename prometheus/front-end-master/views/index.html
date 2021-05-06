@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Watch Dog!</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Watch Dog!</h1>
+    </header>
+    <main>
+      <section>
+        <div id = "content">
+          <div id = "side_bar">
+            <div>
+              <div>
+                <h1>Menu<br></h1>
+              </div>
+              <ul>
+                <li>
+                  <span>Temperature</span>
+                  <a href="http://grafana:3000">Temperature</a>
+                </li>
+                <li>
+                  <span>Humidity</span>
+                  <i id = "water" class="las la-water"></i>
+                </li>
+                <li>
+                  <span>Door Alarm</span>
+                  <i id = "alarm" class="las la-exclamation-triangle"></i>
+                </li>
+                <li>
+                  <span>Camera</span>
+                  <i id = "camera" class="las la-video"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id = "board">
+            <div class = "card">
+              <div>
+                <p>Temperature</p>
+                <h1>30</h1>
+              </div>
+              <div>
+                <i id = "temperature" class="las la-temperature-high"></i>
+              </div>
+            </div>
+            <div class = "card">
+              <div>
+                <p>Humidity</p>
+                <h1>30</h1>
+              </div>
+              <div>
+                <i id = "water" class="las la-water"></i>
+              </div>
+            </div>
+            <div class = "card">
+              <div>
+                <p>Door alarm</p>
+                <h1>On</h1>
+              </div>
+              <div>
+                <i id = "alarm" class="las la-exclamation-triangle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
