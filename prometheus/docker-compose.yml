@@ -61,7 +61,7 @@ services:
     #   - backend
     ports:
       - "5169:5150"
-    container_name: balena_cam
+    container_name: balena-cam
     labels:
       io.balena.features.kernel-modules: '1'
 
