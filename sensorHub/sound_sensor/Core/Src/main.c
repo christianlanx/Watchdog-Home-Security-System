@@ -120,6 +120,9 @@ int main(void)
     MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+      if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+      }
   }
   /* USER CODE END 3 */
 }
