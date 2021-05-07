@@ -26,12 +26,6 @@ services:
     build: ./grafana
     ports: 
       - "3000:3000"
-    # environment:
-      # - 'GF_AUTH_ANONYMOUS_ENABLED=true'
-      # - 'GF_SERVER_HTTP_PORT=3000'
-      # - 'GF_SERVER_DOMAIN=nginx'
-      # - 'GF_SERVER_SERVE_FROM_SUB_PATH=true'
-      # - 'GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s:%(http_port)s/grafana/'
     # networks:
     #     - frontend
     #     - backend
