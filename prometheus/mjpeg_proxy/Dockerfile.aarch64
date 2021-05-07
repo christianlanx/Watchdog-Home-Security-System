@@ -9,7 +9,6 @@ COPY requirements.txt requirements.txt
 
 # pip install python deps from requirements.txt on the resin.io build server
 RUN pip install -r requirements.txt
-RUN python3 -m pip install socket
 
 # Copy all files in our root to the working directory of the container
 COPY . ./
@@ -19,5 +18,9 @@ EXPOSE 5000
 
 # main.py will run when the container starts up on the device
 # CMD ["python","-u","mjpeg-proxy", "--listenhost='http://balena-cam:5150/mjpeg' --listenport=5000"]
-RUN ["python","-u","mjpeg-proxy.py", "--listenport=5151 http://balena-cam:5150/mjpeg"]
+#RUN ["python","-u","mjpeg-proxy.py", "--listenport=5151 'http://balena-cam:5150/mjpeg'"]
+
+CMD ["python", "-u", "mjpeg-proxy.py", "-l", "0.0.0.0", "-p", "5151", "http://balena-cam:5169/mjpeg"]
+
+
 # RUN while: ; do mjpeg-proxy --listenhost='http://balena-cam:5150/mjpeg' --listenport=5151; done

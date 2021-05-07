@@ -135,12 +135,15 @@ def cli(mjpegurl, listenhost, listenport):
     socketserver.TCPServer.allow_reuse_address = True
     server = ThreadedTCPServer((listenhost, listenport), ThreadedTCPRequestHandler, mjpegurl)
 
+    print("starting server...")
     server_thread = threading.Thread(target=server.serve_forever)
     server_thread.daemon = True
     server_thread.start()
 
     server_thread.join()
+    print("calling server shutdown...")
     server.shutdown()
+    print("calling socket to close...")
     server.server_close()
 
 if __name__ == '__main__':
