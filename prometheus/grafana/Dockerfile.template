@@ -7,7 +7,6 @@ COPY ./conf/datasources.yml /etc/grafana/provisioning/datasources/
 COPY ./conf/dash* /etc/grafana/provisioning/dashboards/
 
 # Apply custom config
-RUN rm /etc/grafana/grafana.ini
 COPY ./conf/grafana.ini /etc/grafana/
 
 EXPOSE 3000
