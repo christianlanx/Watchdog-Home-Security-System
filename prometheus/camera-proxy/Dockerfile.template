@@ -1,0 +1,9 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-golang:latest
+
+WORKDIR /src/
+
+COPY proxy.go /src/
+
+RUN CGO_ENABLED=0 go build -o /bin/demo
+
+ENTRYPOINT ["/bin/demo"]

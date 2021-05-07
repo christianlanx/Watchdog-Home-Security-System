@@ -59,13 +59,22 @@ services:
     labels:
       io.balena.features.kernel-modules: '1'
 
-  mjpeg_proxy:
-    build: ./mjpeg_proxy
-    privileged: true
-    restart: always
-    ports:
-      - "5151:5151"
-    container_name: mjpeg_proxy
+  # camera-proxy:
+  #   build: ./camera-proxy
+  #   restart: always
+  #   depends_on:
+  #     - balena-cam
+  #   ports:
+  #     - "8080:8080"
+  #   container_name: camera-proxy
+
+  # mjpeg_proxy:
+  #   build: ./mjpeg_proxy
+  #   privileged: true
+  #   restart: always
+  #   ports:
+  #     - "5151:5151"
+  #   container_name: mjpeg_proxy
 
 # networks:
 #     frontend:
