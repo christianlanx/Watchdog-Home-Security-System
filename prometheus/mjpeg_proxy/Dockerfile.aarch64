@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY . ./
 
 # Start the container
-EXPOSE 5000
+EXPOSE 5151
 
 # main.py will run when the container starts up on the device
 # CMD ["python","-u","mjpeg-proxy", "--listenhost='http://balena-cam:5150/mjpeg' --listenport=5000"]
