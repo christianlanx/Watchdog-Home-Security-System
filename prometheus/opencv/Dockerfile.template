@@ -1,0 +1,21 @@
+# base-image for python on any machine using a template variable
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:latest
+
+# install package dependencies
+RUN apt-get update
+RUN pip install --upgrade pip
+
+# Set our working directory
+WORKDIR /usr/src/app
+
+# Copy requirements.txt first for better cache on later pushes
+COPY requirements.txt requirements.txt
+
+# pip install python deps from requirements.txt on the resin.io build server                      
+RUN READTHEDOCS=True pip install -r requirements.txt
+
+# Copy all files in our root to the working directory of the container
+COPY . ./
+
+# main.py will run when the container starts up on the device
+CMD ["python","-u","webstreaming.py", "--ip", "0.0.0.0", "--port", "8000"]
