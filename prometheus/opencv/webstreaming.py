@@ -56,7 +56,7 @@ def detect_motion(frameCount):
         cv2.putText(frame, timestamp.strftime(
             "%A %d %B %Y %I:%M:%S%p"), (10, frame.shape[0] - 10),
             cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
-        
+
         # if the total number of frames has reached a sufficient
         # number to construct a bg model, then continue to process
         if total > frameCount:
@@ -78,11 +78,11 @@ def detect_motion(frameCount):
         # acquire the lock, set the output frame, and release the lock
         with lock:
             outputFrame = frame.copy()
-    
+
 def generate():
     # grab global references to the output frame and lock variables
     global outputFrame, lock
-    
+
     # loop over frames from the output stream
     while True:
         # wait until the lock is acquired
@@ -98,7 +98,7 @@ def generate():
             # ensure the frame was successfully encoded
             if not flag:
                 continue
-        
+
         # yield the output frame in the byte format
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
             bytearray(encodedImage) + b'\r\n')
@@ -112,22 +112,22 @@ def video_feed():
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':
-	# construct the argument parser and parse command line arguments
-	ap = argparse.ArgumentParser()
-	ap.add_argument("-i", "--ip", type=str, required=True,
-		help="ip address of the device")
-	ap.add_argument("-o", "--port", type=int, required=True,
-		help="ephemeral port number of the server (1024 to 65535)")
-	ap.add_argument("-f", "--frame-count", type=int, default=32,
-		help="# of frames used to construct the background model")
-	args = vars(ap.parse_args())
-	# start a thread that will perform motion detection
-	t = threading.Thread(target=detect_motion, args=(
-		args["frame_count"],))
-	t.daemon = True
-	t.start()
-	# start the flask app
-	app.run(host=args["ip"], port=args["port"], debug=True,
-		threaded=True, use_reloader=False)
+    # construct the argument parser and parse command line arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-i", "--ip", type=str, required=True,
+        help="ip address of the device")
+    ap.add_argument("-o", "--port", type=int, required=True,
+        help="ephemeral port number of the server (1024 to 65535)")
+    ap.add_argument("-f", "--frame-count", type=int, default=32,
+        help="# of frames used to construct the background model")
+    args = vars(ap.parse_args())
+    # start a thread that will perform motion detection
+    t = threading.Thread(target=detect_motion, args=(
+        args["frame_count"],))
+    t.daemon = True
+    t.start()
+    # start the flask app
+    app.run(host=args["ip"], port=args["port"], debug=True,
+        threaded=True, use_reloader=False)
 # release the video stream pointer
 vs.release()

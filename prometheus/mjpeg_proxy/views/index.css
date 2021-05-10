@@ -1,0 +1,88 @@
+/*
+  COMPLETED SET.CSS FOR CSE154 HW2 20SU
+  DO NOT MODIFY THIS FILE
+  MODIFICATIONS MAKE YOU INELIGIBLE FOR FULL CREDIT
+ */
+
+ body, button, select, input {
+  font-family: "Helvetica", "Verdana", sans-serif;
+  text-align: center;
+  font-size: 12pt;
+  background: blanchedalmond;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+
+#side_bar {
+  display: flex;
+  border-right: bisque outset 5pt;
+  border-left: bisque outset 5pt;
+  border-bottom:  bisque outset 5pt;
+  border-top:  bisque outset 5pt;
+  padding: 10px;
+}
+
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card, #board {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#board {
+  border-right: bisque outset 5pt;
+  border-left: bisque outset 5pt;
+  border-bottom:  bisque outset 5pt;
+  border-top:  bisque outset 5pt;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 210px;
+  height: 95px;
+  border: 0.35em burlywood;
+  border-radius: 1em;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #fff;
+  box-shadow: 3px 3px grey;
+}
+
+
+.card p {
+  font-weight: bold;
+  font-size: 14pt;
+  color: darkgray;
+}
+
+.card i {
+  font-size: 20pt;
+}
+
+#water{
+  color: skyblue;
+}
+
+#temperature{
+  color: tomato;
+}
+
+#alarm{
+  color: red;
+}
+
+
+
+
