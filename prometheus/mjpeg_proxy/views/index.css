@@ -5,10 +5,18 @@
  */
 
  body, button, select, input {
-  font-family: "Helvetica", "Verdana", sans-serif;
+  font-family: "Audiowide", sans-serif;
   text-align: center;
   font-size: 12pt;
-  background: blanchedalmond;
+  background: grey;
+}
+
+button {
+  float: left;
+  width: 250px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border: none;
+  border-radius: 15px;
 }
 
 main {
@@ -17,21 +25,12 @@ main {
 }
 
 
-#side_bar {
+header {
   display: flex;
-  border-right: bisque outset 5pt;
-  border-left: bisque outset 5pt;
-  border-bottom:  bisque outset 5pt;
-  border-top:  bisque outset 5pt;
-  padding: 10px;
-}
-
-#content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
+
 
 .card, #board {
   display: flex;
@@ -40,12 +39,25 @@ main {
 }
 
 #board {
-  border-right: bisque outset 5pt;
-  border-left: bisque outset 5pt;
-  border-bottom:  bisque outset 5pt;
-  border-top:  bisque outset 5pt;
+  border-right:darkslategrey outset 5pt;
+  border-left: darkslategrey outset 5pt;
+  border-bottom:  darkslategrey outset 5pt;
+  border-top:  darkslategrey outset 5pt;
+  border-radius: 15px;
   padding: 20px;
-  flex-wrap: wrap;
+  margin: 20px;
+  flex: wrap;
+}
+
+#dashboard {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+a {
+  color: navy;
+  text-decoration: none;
 }
 
 .card {
@@ -83,6 +95,9 @@ main {
   color: red;
 }
 
+.hidden {
+  display: none;
+}
 
 
 
