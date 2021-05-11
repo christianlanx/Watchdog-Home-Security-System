@@ -5,70 +5,84 @@
     <title>Watch Dog!</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <script src="index.js"></script>
   </head>
   <body>
+    <h1 style="color:navy;">
+      <a class="las la-eye"></a>
+      Watch Dog
+      <a class="las la-eye"></a>
+    </h1>
     <header>
-      <h1>Watch Dog!</h1>
+      <button id = "temperature_button">
+        <a href = "http://grafana:3000">
+          <span class = "dataLink">Temperature</span>
+          <span id = "temperature" class="las la-temperature-high"></span>
+        </a>
+      </button>
+      <button id = "humidity_button">
+        <a href = "http://grafana:3000">
+          <span class = "dataLink">Humidity</span>
+          <i id = "water" class="las la-water"></i>
+        </a>
+      </button>
+      <button id = "alarm_button">
+        <a href = "http://grafana:3000">
+          <span class = "dataLink">Door Alarm</span>
+          <i id = "alarm" class="las la-exclamation-triangle"></i>
+        </a>
+      </button>
+      <button>
+        <a href = "http://balena-cam:5150">
+          <span class = "dataLink">Camera</span>
+          <i id = "camera" class="las la-video"></i>
+        </a>
+      </button>
     </header>
     <main>
       <section>
-        <div id = "content">
-          <div id = "side_bar">
+        <article id = "board">
+          <div class = "card">
             <div>
-              <div>
-                <h1>Menu<br></h1>
-              </div>
-              <ul>
-                <li>
-                  <span>Temperature</span>
-                  <i id = "temperature" class="las la-temperature-high"></i>
-                </li>
-                <li>
-                  <span>Humidity</span>
-                  <i id = "water" class="las la-water"></i>
-                </li>
-                <li>
-                  <span>Door Alarm</span>
-                  <i id = "alarm" class="las la-exclamation-triangle"></i>
-                </li>
-                <li>
-                  <span>Camera</span>
-                  <i id = "camera" class="las la-video"></i>
-                </li>
-              </ul>
+              <p>Temperature</p>
+              <h1>30</h1>
+            </div>
+            <div>
+              <i id = "temperature" class="las la-temperature-high"></i>
             </div>
           </div>
-          <div id = "board">
-            <div class = "card">
-              <div>
-                <p>Temperature</p>
-                <h1>30</h1>
-              </div>
-              <div>
-                <i id = "temperature" class="las la-temperature-high"></i>
-              </div>
+          <div class = "card">
+            <div>
+              <p>Humidity</p>
+              <h1>30</h1>
             </div>
-            <div class = "card">
-              <div>
-                <p>Humidity</p>
-                <h1>30</h1>
-              </div>
-              <div>
-                <i id = "water" class="las la-water"></i>
-              </div>
-            </div>
-            <div class = "card">
-              <div>
-                <p>Door alarm</p>
-                <h1>On</h1>
-              </div>
-              <div>
-                <i id = "alarm" class="las la-exclamation-triangle"></i>
-              </div>
+            <div>
+              <i id = "water" class="las la-water"></i>
             </div>
           </div>
-        </div>
+          <div class = "card">
+            <div>
+              <p>Door alarm</p>
+              <h1>On</h1>
+            </div>
+            <div>
+              <i id = "alarm" class="las la-exclamation-triangle"></i>
+            </div>
+          </div>
+        </article>
+
+        <article id = "dashboard">
+          <div id = "temp_Graph" class = "hidden">
+            <iframe src="http://a6561dcb9a9d08fb68f7bfa13f6d59ed.balena-devices.com/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1620726245468&to=1620747845469&panelId=4" width="450" height="200" frameborder="0"></iframe>
+          </div>
+          <div id = "hum_Graph" class = "hidden">
+            <iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/y7zwi2bZ7FcoTlB93WN7yWO4aMiz3pZb?from=1493369923321&to=1493377123321&panelId=4" width="350" height="300" frameborder="0"></iframe>
+          </div>
+          <div id = "alarm_Graph" class = "hidden">
+            <iframe src="https://snapshot.raintank.io/dashboard-solo/snapshot/y7zwi2bZ7FcoTlB93WN7yWO4aMiz3pZb?from=1493369923321&to=1493377123321&panelId=4" width="350" height="300" frameborder="0"></iframe>
+          </div>
+        </article>
       </section>
     </main>
   </body>
