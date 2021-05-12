@@ -130,6 +130,8 @@ def detect_motion(frameCount):
         with lock:
             outputFrame = frame.copy()
 
+        time.sleep(0.06)    # sleep the camera stream for two frames
+
 def generate():
     # grab global references to the output frame and lock variables
     global outputFrame, lock
