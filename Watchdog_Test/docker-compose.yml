@@ -33,7 +33,7 @@ services:
         - grafana_usr:/usr/share/grafana 
         - grafana_var:/var/lib/grafana
     container_name: grafana
-  sensor:
+  bme280:
     build: ./bme280
     privileged: true
     ports:
