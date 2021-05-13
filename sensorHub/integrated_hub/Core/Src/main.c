@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
+#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -49,6 +50,8 @@ RTC_HandleTypeDef hrtc;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
+float audio;
+float envelope;
 
 /* USER CODE END PV */
 
@@ -104,9 +107,11 @@ int main(void)
   MX_SPI1_Init();
   MX_USB_HOST_Init();
   /* USER CODE BEGIN 2 */
+  int released = 0;
+  char [6] audio_array;
+  char [6] envelope_array;
 
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -115,6 +120,25 @@ int main(void)
     MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+    // Door sensor
+    if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && !released) {
+	    released = 1;
+	    HAL_TIM_Base_Start_IT(&htim2);
+    } else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && released) {
+	    HAL_TIM_Base_Stop_IT(&htim2);
+	    TIM2->CNT = 0;
+	    released = 0;
+	    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+    }
+    // Sound Sensor
+    if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
+	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+    }
+    HAL_ADC_Start_IT(&hadc1);
+    HAL_ADC_Start_IT(&hadc2);
+    sprintf(audio_array, "%f", audio);
+    sprintf(envelope_array, "%f", envelope);
+
   }
   /* USER CODE END 3 */
 }
