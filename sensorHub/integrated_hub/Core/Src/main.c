@@ -3,6 +3,7 @@
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
+  * @authors	    : Morgan McCandless, Rouen De La O
   ******************************************************************************
   * @attention
   *
@@ -20,10 +21,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -112,8 +114,10 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   int released = 0;
-  char [6] audio_array;
-  char [6] envelope_array;
+  int messageSelect = 0;
+  char [10] audio_array;
+  char [10] envelope_array;
+  char defaultMessage[50] = "Hello World";
 
   /* USER CODE END 2 */
   /* Infinite loop */
@@ -134,6 +138,7 @@ int main(void)
 	    released = 0;
 	    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
     }
+
     // Sound Sensor
     if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
 	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
@@ -142,6 +147,19 @@ int main(void)
     HAL_ADC_Start_IT(&hadc2);
     sprintf(audio_array, "%f", audio);
     sprintf(envelope_array, "%f", envelope);
+
+    // SPI Rotation
+    if (messageSelect == 0) { 
+    	HAL_SPI_Transmit(&hspi1, (uint8_t*)defaultMessage, strlen(defaultMessage), 100);
+	message_select = 1;
+    } else if (message_select == 1) {
+	HAL_SPI_Transmit(&hspi1, (uint8_t*)audio_array, strlen(audio_array), 100);
+	message_select = 2;
+    } else {
+	HAL_SPI_Transmit(&hspi1, (uint8_t*)envelope_array, strlen(envelope_array), 100);
+	message_select = 0;
+    }
+
 
   }
   /* USER CODE END 3 */
