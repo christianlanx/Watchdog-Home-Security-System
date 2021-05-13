@@ -1,9 +1,7 @@
 # import packages
 # from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
-from flask import Response
-from flask import Flask
-from flask import render_template
+from flask import Response, Flask, render_template
 import threading
 import argparse
 import datetime
@@ -12,7 +10,6 @@ import cv2
 import imutils
 import time
 import sys
-
 
 class SingleMotionDetector:
     def __init__(self, accumWeight=0.5):
@@ -99,6 +96,7 @@ def detect_motion(frameCount):
         # convert the frame to greyscal and blur it
         ret, frame = vs.read()
         frame = imutils.resize(frame, width=400)
+        frame = cv2.flip(frame, 0)
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
@@ -144,9 +142,6 @@ def generate():
             # the iteration of the loop
             if outputFrame is None:
                 continue
-
-            # flip the frame
-            outputFrame = cv2.flip(outputFrame, 1)
 
             # encode the frame is JPEG format
             (flag, encodedImage) = cv2.imencode(".jpg", outputFrame)
