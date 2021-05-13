@@ -21,6 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_it.h"
+#include <stdio.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -59,6 +60,8 @@
 extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
+extern float audio;
+extern float envelope;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -221,6 +224,15 @@ void EXTI0_IRQHandler(void)
 void ADC_IRQHandler(void)
 {
   /* USER CODE BEGIN ADC_IRQn 0 */
+  if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC)) {
+	  audio = HAL_ADC_GetValue(&hadc1)*(2.4/4096);
+	  printf("Audio value: %f", audio);
+	  
+  }
+  if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc2), HAL_ADC_STATE_REG_EOC)) {
+	  envelope = HAL_ADC_GetValue(&hadc2)*(2.4/4096);
+	  printf("Envelope value: %f", envelope);
+  }
 
   /* USER CODE END ADC_IRQn 0 */
   HAL_ADC_IRQHandler(&hadc1);

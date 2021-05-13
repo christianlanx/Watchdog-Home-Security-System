@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usb_host.h"
+#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -53,6 +54,8 @@ RTC_HandleTypeDef hrtc;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
+float audio;
+float envelope;
 
 /* USER CODE END PV */
 
@@ -120,12 +123,16 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    MX_USB_HOST_Process();
+    //MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
       if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
           HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
       }
+      HAL_ADC_Start_IT(&hadc1);
+      HAL_ADC_Start_IT(&hadc2);
+
+
   }
   /* USER CODE END 3 */
 }
