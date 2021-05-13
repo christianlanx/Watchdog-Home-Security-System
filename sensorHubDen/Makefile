@@ -81,6 +81,7 @@ AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
 endif
+AR = $(PREFIX)ar
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
  
