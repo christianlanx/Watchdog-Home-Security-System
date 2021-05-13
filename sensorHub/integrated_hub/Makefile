@@ -95,6 +95,7 @@ CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
 endif
 HEX = $(CP) -O ihex
+AR = $(PREFIX)ar
 BIN = $(CP) -O binary -S
  
 #######################################
