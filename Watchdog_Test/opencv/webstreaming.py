@@ -145,6 +145,9 @@ def generate():
             if outputFrame is None:
                 continue
 
+            # flip the frame
+            outputFrame = cv2.flip(outputFrame, 1)
+
             # encode the frame is JPEG format
             (flag, encodedImage) = cv2.imencode(".jpg", outputFrame)
 
