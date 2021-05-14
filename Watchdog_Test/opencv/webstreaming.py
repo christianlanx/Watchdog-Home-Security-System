@@ -2,6 +2,7 @@
 # from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
 from flask import Response, Flask, render_template
+from prometheus_client import start_http_server, Gauge, generate_latest
 import threading
 import argparse
 import datetime
@@ -65,6 +66,13 @@ class SingleMotionDetector:
 outputFrame = None
 lock = threading.Lock()
 
+# set up alert flag
+mot_det_flag = 0
+
+# set content type for alert flag's HTTP response
+CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
+
+
 # initialize a flask object
 app = Flask(__name__)
 
@@ -119,6 +127,13 @@ def detect_motion(frameCount):
                 cv2.rectangle(frame, (minX, minY), (maxX, maxY),
                     (0, 0, 255), 2)
 
+                # set the alert flag, which updates the Prometheus Gauge in .../alert/
+                print("Motion detected -- setting motion detection flag")
+                mot_det_flag = 1
+            else:
+                # reset motion detection flag
+                mot_det_flag = 0
+
         # update the background model and increment the total number
         # of frames read thus far
         md.update(gray)
@@ -160,6 +175,13 @@ def video_feed():
     # type (mime type)
     return Response(generate(),
         mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+
+@app.route("/alert", methods=['GET'])
+def alert():
+    # return the response generated along with the specific media
+    # return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
+    return Response(mot_det_flag, mimetype=CONTENT_TYPE_LATEST)
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':

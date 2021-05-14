@@ -3,3 +3,4 @@ numpy
 opencv-contrib-python-headless
 imutils
 picamera
+prometheus_client
