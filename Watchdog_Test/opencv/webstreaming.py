@@ -11,6 +11,7 @@ import cv2
 import imutils
 import time
 import sys
+import os
 
 class SingleMotionDetector:
     def __init__(self, accumWeight=0.5):
@@ -72,6 +73,8 @@ mot_det_flag = 0
 # set content type for alert flag's HTTP response
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 
+# grab the value we want to rotate the output frame by (Balena cloud variable)
+ROT_VAR = os.environ['STREAM_ROT_VAR']
 
 # initialize a flask object
 app = Flask(__name__)
@@ -104,7 +107,21 @@ def detect_motion(frameCount):
         # convert the frame to greyscal and blur it
         ret, frame = vs.read()
         frame = imutils.resize(frame, width=400)
-        frame = cv2.flip(frame, 0)
+
+        # Rotate the frame according to Balena environment variable
+        # See cv2.rotate() documentation for list of values
+        if ROT_VAR is not None:
+            # frame = cv2.flip(frame, 0)
+            print("ROT_VAR:\t", ROT_VAR)
+            print("type(ROT_VAR):\t", type(ROT_VAR))
+            if ROT_VAR == "180":
+                frame = cv2.rotate(frame, cv2.ROTATE_180)
+            elif ROT_VAR == "+90":
+                frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+            elif ROT_VAR == "-90":
+                frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+            # frame = cv2.rotate(frame, int(ROT_VAR))
+
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
@@ -128,7 +145,7 @@ def detect_motion(frameCount):
                     (0, 0, 255), 2)
 
                 # set the alert flag, which updates the Prometheus Gauge in .../alert/
-                print("Motion detected -- setting motion detection flag")
+                # print("Motion detected -- setting motion detection flag")
                 mot_det_flag = 1
             else:
                 # reset motion detection flag
