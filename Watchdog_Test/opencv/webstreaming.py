@@ -103,24 +103,20 @@ def detect_motion(frameCount):
 
     # loop over frames from the video stream
     while True:
-        # read the next fram from the video stream, resize it
-        # convert the frame to greyscal and blur it
+        # read the next frame from the video stream, resize it
+        # convert the frame to greyscale and blur it
         ret, frame = vs.read()
         frame = imutils.resize(frame, width=400)
 
         # Rotate the frame according to Balena environment variable
         # See cv2.rotate() documentation for list of values
         if ROT_VAR is not None:
-            # frame = cv2.flip(frame, 0)
-            print("ROT_VAR:\t", ROT_VAR)
-            print("type(ROT_VAR):\t", type(ROT_VAR))
             if ROT_VAR == "180":
                 frame = cv2.rotate(frame, cv2.ROTATE_180)
             elif ROT_VAR == "+90":
                 frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
             elif ROT_VAR == "-90":
                 frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
-            # frame = cv2.rotate(frame, int(ROT_VAR))
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (7, 7), 0)
