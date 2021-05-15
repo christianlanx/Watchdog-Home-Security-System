@@ -76,6 +76,8 @@ CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 # grab the value we want to rotate the output frame by (Balena cloud variable)
 if os.environ.get('STREAM_ROT_VAR') is not None:
     ROT_VAR = os.environ['STREAM_ROT_VAR']
+else:
+    ROT_VAR = None
 
 # initialize a flask object
 app = Flask(__name__)
