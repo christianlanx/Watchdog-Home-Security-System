@@ -1,0 +1,6 @@
+global:
+  # configure webhook reciever to send JSON data to Twilio container
+  receivers:
+    - name: 'camera_alert'
+      webhook_configs:
+        - url: 'http://twilio:5152'
