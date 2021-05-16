@@ -1,3 +1,5 @@
+# TODO: Isolate frontend and backend networks for better security
+
 version: "2.0"
 services:
   nginx:
@@ -7,9 +9,6 @@ services:
     # networks:
     #   - frontend
     #   - backend
-    # depends_on:
-    #   - prometheus
-    #   - grafana
     container_name: nginx
   prometheus:
     build: ./prometheus
@@ -18,8 +17,6 @@ services:
     # networks:
     #   - frontend
     #   - backend
-    # depends_on: 
-    #   - bme280
     container_name: prometheus
   grafana:
     build: ./grafana
@@ -51,10 +48,27 @@ services:
     restart: always
     privileged: true
     container_name: opencv
+    # networks:
+    #   - backend
     ports:
       - "8000:8000"
     labels:
       io.balena.features.kernel-modules: '1'
+  alertmanager:
+    build: ./alertmanager
+    privileged: true
+    volumes:
+      - alertmanager:/alertmanager/
+    ports:
+      - '9093:9093'
+  alertmanager-discord:
+    image: benjojo/alertmanager-discord
+    restart: always
+    container_name: alertmanager-discord
+    ports:
+      - "9094:9094"
+    environment:
+      - DISCORD_WEBHOOK=https://discord.com/api/webhooks/843548957270999110/IGYr_zOpZ_qhMIoiYLrGQ8URNCPrf_iXXzi-HpIO68yPsr7rlctYX2WTQEZiSxsS3ska
 
 # networks:
 #     frontend:
@@ -64,3 +78,4 @@ volumes:
     grafana_etc:
     grafana_usr:
     grafana_var:
+    alertmanager:

@@ -1,0 +1,12 @@
+groups:
+  - name: custom_rules
+    rules:
+      - record: bme280_temperature_fahrenheit
+        expr: bme280_temperature_celsius * 9/5 + 32
+      
+      # alert for excessive temperature
+      - alert: Excessive Temperature
+        expr: bme280_temperature_fahrenheit > 80
+        annotations:
+          summary: "Excessive temperature!"
+          description: "Temperature in excess of 80 F (current value: {{ $value }} F)"
