@@ -6,7 +6,7 @@ groups:
       
       # alert for excessive temperature
       - alert: Excessive Temperature
-        expr: bme280_temperature_fahrenheit > 80
+        expr: bme280_temperature_fahrenheit > 70
         annotations:
           summary: "Excessive temperature!"
-          description: "Temperature in excess of 80 F (current value: {{ $value }} F)"
+          description: "Temperature in excess of 70 F (current value: {{ $value }} F)"

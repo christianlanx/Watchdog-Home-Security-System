@@ -62,7 +62,7 @@ services:
     ports:
       - '9093:9093'
   alertmanager-discord:
-    image: benjojo/alertmanager-discord
+    build: alertmanager-discord
     restart: always
     container_name: alertmanager-discord
     ports:
@@ -70,19 +70,19 @@ services:
     environment:
       - DISCORD_WEBHOOK=https://discord.com/api/webhooks/843548957270999110/IGYr_zOpZ_qhMIoiYLrGQ8URNCPrf_iXXzi-HpIO68yPsr7rlctYX2WTQEZiSxsS3ska
 
-  twilio:
-    build: ./twilio
-    #    restart: always
-    privileged: true
-    container_name: opencv
-    ports:
-      - "5152:5152"   # note, if this port is bad, make sure to change the port in /prometheus/alertmanager.yml, too!
-#    FIX ME: Twilio auth variables used for debugging
-#    environment:
-#      - 'TWILIO_ACCOUNT_SID=AC97666081a865104c19f0c2266ce81e08'
-#      - 'TWILIO_AUTH_TOKEN=189ba47c0d92194d8afc0a2b4e08ca06'
-#      - 'DEST_NUM=+18135194665'
-#      - 'HOST_NUM=+13852260092'
+#   twilio:
+#     build: ./twilio
+#     #    restart: always
+#     privileged: true
+#     container_name: opencv
+#     ports:
+#       - "5152:5152"   # note, if this port is bad, make sure to change the port in /prometheus/alertmanager.yml, too!
+# #    FIX ME: Twilio auth variables used for debugging
+# #    environment:
+# #      - 'TWILIO_ACCOUNT_SID=AC97666081a865104c19f0c2266ce81e08'
+# #      - 'TWILIO_AUTH_TOKEN=189ba47c0d92194d8afc0a2b4e08ca06'
+# #      - 'DEST_NUM=+18135194665'
+# #      - 'HOST_NUM=+13852260092'
 
 # networks:
 #     frontend:
