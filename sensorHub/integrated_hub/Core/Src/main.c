@@ -47,15 +47,17 @@
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 
-I2C_HandleTypeDef hi2c1;
-
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim2;
 
+UART_HandleTypeDef huart4;
+
 /* USER CODE BEGIN PV */
 float audio;
 float envelope;
+char audio_array[10];
+char envelope_array[10];
 
 /* USER CODE END PV */
 
@@ -66,7 +68,7 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_I2C1_Init(void);
+static void MX_UART4_Init(void);
 void MX_USB_HOST_Process(void);
 
 /* USER CODE BEGIN PFP */
@@ -111,13 +113,9 @@ int main(void)
   MX_RTC_Init();
   MX_USB_HOST_Init();
   MX_TIM2_Init();
-  MX_I2C1_Init();
+  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
   int released = 0;
-  int messageSelect = 0;
-  char [10] audio_array;
-  char [10] envelope_array;
-  char defaultMessage[50] = "Hello World";
 
   /* USER CODE END 2 */
 
@@ -148,19 +146,6 @@ int main(void)
     HAL_ADC_Start_IT(&hadc2);
     sprintf(audio_array, "%f", audio);
     sprintf(envelope_array, "%f", envelope);
-
-    // SPI Rotation
-    if (messageSelect == 0) { 
-    	HAL_SPI_Transmit(&hspi1, (uint8_t*)defaultMessage, strlen(defaultMessage), 100);
-	message_select = 1;
-    } else if (message_select == 1) {
-	HAL_SPI_Transmit(&hspi1, (uint8_t*)audio_array, strlen(audio_array), 100);
-	message_select = 2;
-    } else {
-	HAL_SPI_Transmit(&hspi1, (uint8_t*)envelope_array, strlen(envelope_array), 100);
-	message_select = 0;
-    }
-
 
   }
   /* USER CODE END 3 */
@@ -318,40 +303,6 @@ static void MX_ADC2_Init(void)
 }
 
 /**
-  * @brief I2C1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2C1_Init(void)
-{
-
-  /* USER CODE BEGIN I2C1_Init 0 */
-
-  /* USER CODE END I2C1_Init 0 */
-
-  /* USER CODE BEGIN I2C1_Init 1 */
-
-  /* USER CODE END I2C1_Init 1 */
-  hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
-  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
-  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c1.Init.OwnAddress2 = 0;
-  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2C1_Init 2 */
-
-  /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
   * @brief RTC Initialization Function
   * @param None
   * @retval None
@@ -427,6 +378,39 @@ static void MX_TIM2_Init(void)
   /* USER CODE BEGIN TIM2_Init 2 */
 
   /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
+  * @brief UART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART4_Init(void)
+{
+
+  /* USER CODE BEGIN UART4_Init 0 */
+
+  /* USER CODE END UART4_Init 0 */
+
+  /* USER CODE BEGIN UART4_Init 1 */
+
+  /* USER CODE END UART4_Init 1 */
+  huart4.Instance = UART4;
+  huart4.Init.BaudRate = 9600;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART4_Init 2 */
+
+  /* USER CODE END UART4_Init 2 */
 
 }
 

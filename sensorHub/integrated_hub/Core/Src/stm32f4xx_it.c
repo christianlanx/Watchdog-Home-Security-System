@@ -44,6 +44,11 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
+extern float audio;
+extern float envelope;
+extern char audio_array[10];
+extern char envelope_array[10];
+int message_select = 2;
 
 /* USER CODE END PV */
 
@@ -63,7 +68,7 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN EV */
-
+extern UART_HandleTypeDef huart4;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -224,7 +229,18 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
+  char default_message[20] = "Hello World!";
 
+  if (message_select == 0) {
+ 	HAL_UART_Transmit(&huart4, audio_array, strlen(audio_array), 1000);
+	message_select = 1;
+  } else if (message_select == 1) {
+	HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), 1000);
+	message_select = 2;
+  } else {
+  	HAL_UART_Transmit(&huart4, default_message, strlen(default_message), 1000);
+	message_select = 0;
+  }	
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
   /* USER CODE BEGIN EXTI1_IRQn 1 */
@@ -239,10 +255,10 @@ void ADC_IRQHandler(void)
 {
   /* USER CODE BEGIN ADC_IRQn 0 */
   if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC)) {
-	  audio = HAL_ADC_GetValue(&hadc1)*(2.4/4096);
+	  audio = HAL_ADC_GetValue(&hadc1);
   }
   if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc2), HAL_ADC_STATE_REG_EOC)) {
-	  envelope = HAL_ADC_GetValue(&hadc2) * (2.4/4096);
+	  envelope = HAL_ADC_GetValue(&hadc2);
   } 
 
   /* USER CODE END ADC_IRQn 0 */
