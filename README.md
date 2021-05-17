@@ -4,6 +4,7 @@
 
 ## Watchdog Home Security System
 
+# TODO: Update fritzing diagram and description
 
 ### Delete some of the following
 
