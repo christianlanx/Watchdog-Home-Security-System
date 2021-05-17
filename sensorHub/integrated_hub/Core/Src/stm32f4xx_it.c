@@ -68,7 +68,7 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN EV */
-extern I2C_HandleTypeDef hi2c1;
+extern UART_HandleTypeDef huart4;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -232,13 +232,14 @@ void EXTI1_IRQHandler(void)
   char default_message[20] = "Hello World!";
 
   if (message_select == 0) {
- 	HAL_I2C_Slave_Transmit (&hi2c1, audio_array, strlen(audio_array), 1000);
+ 	HAL_UART_Transmit(&huart4, audio_array, strlen(audio_array), 1000);
 	message_select = 1;
   } else if (message_select == 1) {
-	HAL_I2C_Slave_Transmit (&hi2c1, envelope_array, strlen(envelope_array), 1000);
-	message_select = 0;
+	HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), 1000);
+	message_select = 2;
   } else {
-  	HAL_I2C_Slave_Transmit (&hi2c1, default_message, strlen(default_message), 1000);
+  	HAL_UART_Transmit(&huart4, default_message, strlen(default_message), 1000);
+	message_select = 0;
   }	
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
