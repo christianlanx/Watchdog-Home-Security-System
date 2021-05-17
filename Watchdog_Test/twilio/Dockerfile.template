@@ -3,7 +3,6 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-python:latest
 
 # install package dependencies
 RUN apt-get update
-RUN apt-get install python-dev python-pip gcc
 RUN pip install --upgrade pip
 
 # Set our working directory
@@ -13,13 +12,17 @@ WORKDIR /usr/src/app
 COPY requirements.txt requirements.txt
 
 # pip install python deps from requirements.txt on the resin.io build server                      
-RUN pip install -r requirements.txt
+RUN READTHEDOCS=True pip install -r requirements.txt
+
+# set the environment variables
+#TWILIO_ACCOUNT_SID=AC97666081a865104c19f0c2266ce81e08
+#TWILIO_AUTH_TOKEN=189ba47c0d92194d8afc0a2b4e08ca06
+#DEST_NUM=+18135194665
+#HOST_NUM=+13852260092
 
 # Copy all files in our root to the working directory of the container
 COPY . ./
 
-# Enable udevd so that plugged dynamic hardware devices show up in our container
-ENV UDEV=1
-
 # main.py will run when the container starts up on the device
-CMD ["python","-u","src/main.py"]
+# CMD ["python","-u","webstreaming.py", "--ip", "0.0.0.0", "--port", "8000", "--frame-count", "16"]
+CMD ["python", "-u", "app.py"]
