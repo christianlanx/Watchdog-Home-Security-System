@@ -56,6 +56,8 @@ TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN PV */
 float audio;
 float envelope;
+char audio_array[10];
+char envelope_array[10];
 
 /* USER CODE END PV */
 
@@ -114,10 +116,6 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   int released = 0;
-  int messageSelect = 0;
-  char [10] audio_array;
-  char [10] envelope_array;
-  char defaultMessage[50] = "Hello World";
 
   /* USER CODE END 2 */
 
@@ -148,19 +146,6 @@ int main(void)
     HAL_ADC_Start_IT(&hadc2);
     sprintf(audio_array, "%f", audio);
     sprintf(envelope_array, "%f", envelope);
-
-    // SPI Rotation
-    if (messageSelect == 0) { 
-    	HAL_SPI_Transmit(&hspi1, (uint8_t*)defaultMessage, strlen(defaultMessage), 100);
-	message_select = 1;
-    } else if (message_select == 1) {
-	HAL_SPI_Transmit(&hspi1, (uint8_t*)audio_array, strlen(audio_array), 100);
-	message_select = 2;
-    } else {
-	HAL_SPI_Transmit(&hspi1, (uint8_t*)envelope_array, strlen(envelope_array), 100);
-	message_select = 0;
-    }
-
 
   }
   /* USER CODE END 3 */
