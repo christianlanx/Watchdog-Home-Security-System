@@ -1,3 +1,6 @@
 [submodule "Watchdog_Test/alertmanager-discord"]
 	path = Watchdog_Test/alertmanager-discord
 	url = https://github.com/benjojo/alertmanager-discord.git
+[submodule "Watchdog_Test/sensorHubPy"]
+	path = Watchdog_Test/sensorHubPy
+	url = git@github.com:delaOrouen/sensorHubPy.git
