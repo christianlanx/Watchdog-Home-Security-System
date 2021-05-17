@@ -1,4 +1,5 @@
 # TODO: Isolate frontend and backend networks for better security
+# TODO: give volumes to prometheus and alertmanager for persistent storage
 
 version: "2.0"
 services:
@@ -57,8 +58,6 @@ services:
   alertmanager:
     build: ./alertmanager
     privileged: true
-    volumes:
-      - alertmanager:/alertmanager/
     ports:
       - '9093:9093'
   alertmanager-discord:
@@ -92,4 +91,3 @@ volumes:
     grafana_etc:
     grafana_usr:
     grafana_var:
-    alertmanager:
