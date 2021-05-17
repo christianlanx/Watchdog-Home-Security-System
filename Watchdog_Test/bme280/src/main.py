@@ -15,7 +15,7 @@ bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
 # bme_cs = digitalio.DigitalInOut(board.D10)
 # bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
-# change this to match the location's pressure (hPa) at sea level
+# change this to    match the location's pressure (hPa) at sea level
 bme280.sea_level_pressure = 1013.25
 
 logger = logging.getLogger(__name__)
@@ -61,7 +61,7 @@ def get_data():
         BME280_ALTITUDE.set(bme280.altitude)
     except Exception as e:
         logger.error("Failed to update altitude. Exception: {}".format(e))
-        
+
     return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
 if __name__ == '__main__':

@@ -1,9 +1,8 @@
 # import packages
 # from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
-from flask import Response
-from flask import Flask
-from flask import render_template
+from flask import Response, Flask, render_template
+from prometheus_client import start_http_server, Gauge, generate_latest
 import threading
 import argparse
 import datetime
@@ -12,7 +11,7 @@ import cv2
 import imutils
 import time
 import sys
-
+import os
 
 class SingleMotionDetector:
     def __init__(self, accumWeight=0.5):
@@ -68,6 +67,18 @@ class SingleMotionDetector:
 outputFrame = None
 lock = threading.Lock()
 
+# set up alert flag
+mot_det_flag = 0
+
+# set content type for alert flag's HTTP response
+CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
+
+# grab the value we want to rotate the output frame by (Balena cloud variable)
+if os.environ.get('STREAM_ROT_VAR') is not None:
+    ROT_VAR = os.environ['STREAM_ROT_VAR']
+else:
+    ROT_VAR = None
+
 # initialize a flask object
 app = Flask(__name__)
 
@@ -95,10 +106,21 @@ def detect_motion(frameCount):
 
     # loop over frames from the video stream
     while True:
-        # read the next fram from the video stream, resize it
-        # convert the frame to greyscal and blur it
+        # read the next frame from the video stream, resize it
+        # convert the frame to greyscale and blur it
         ret, frame = vs.read()
         frame = imutils.resize(frame, width=400)
+
+        # Rotate the frame according to Balena environment variable
+        # See cv2.rotate() documentation for list of values
+        if ROT_VAR is not None:
+            if ROT_VAR == "180":
+                frame = cv2.rotate(frame, cv2.ROTATE_180)
+            elif ROT_VAR == "+90":
+                frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+            elif ROT_VAR == "-90":
+                frame = cv2.rotate(frame, cv2.ROTATE_90_COUNTERCLOCKWISE)
+
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
@@ -120,6 +142,13 @@ def detect_motion(frameCount):
                 (thresh, (minX, minY, maxX, maxY)) = motion
                 cv2.rectangle(frame, (minX, minY), (maxX, maxY),
                     (0, 0, 255), 2)
+
+                # set the alert flag, which updates the Prometheus Gauge in .../alert/
+                # print("Motion detected -- setting motion detection flag")
+                mot_det_flag = 1
+            else:
+                # reset motion detection flag
+                mot_det_flag = 0
 
         # update the background model and increment the total number
         # of frames read thus far
@@ -162,6 +191,13 @@ def video_feed():
     # type (mime type)
     return Response(generate(),
         mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+
+@app.route("/alert", methods=['GET'])
+def alert():
+    # return the response generated along with the specific media
+    # return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
+    return Response(mot_det_flag, mimetype=CONTENT_TYPE_LATEST)
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':

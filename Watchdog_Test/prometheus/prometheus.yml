@@ -3,21 +3,27 @@ global:
   evaluation_interval: 15s
   scrape_timeout: 10s
 
+rule_files:
+  - prometheus_rules.yml
+
 scrape_configs:
   - job_name: prometheus
     honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['prometheus:9090']
-  - job_name: sensor
+  - job_name: bme280
     honor_timestamps: true
     metrics_path: /metrics
     static_configs:
-    - targets: ['sensor:5000']
+    - targets: ['bme280:5000']
   - job_name: node_exporter
     honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['node_exporter:9100']
 
-
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets: ['alertmanager:9093']

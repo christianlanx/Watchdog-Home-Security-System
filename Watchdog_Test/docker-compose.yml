@@ -1,3 +1,6 @@
+# TODO: Isolate frontend and backend networks for better security
+# TODO: give volumes to prometheus and alertmanager for persistent storage
+
 version: "2.0"
 services:
   nginx:
@@ -7,9 +10,6 @@ services:
     # networks:
     #   - frontend
     #   - backend
-    depends_on:
-      - prometheus
-      - grafana
     container_name: nginx
   prometheus:
     build: ./prometheus
@@ -18,8 +18,6 @@ services:
     # networks:
     #   - frontend
     #   - backend
-    depends_on: 
-      - sensor
     container_name: prometheus
   grafana:
     build: ./grafana
@@ -33,56 +31,57 @@ services:
         - grafana_usr:/usr/share/grafana 
         - grafana_var:/var/lib/grafana
     container_name: grafana
-  sensor:
-    build: ./sensor
+  bme280:
+    build: ./bme280
     privileged: true
     ports:
       - "5000:5000"
     # networks:
     #   - backend
-    container_name: sensor
+    container_name: bme280
   node_exporter:
     build: ./node_exporter
     # networks:
     #   - backend
     container_name: node_exporter
-  # balena-cam:
-  #   build: ./balena-cam
-  #   privileged: true
-  #   restart: always
-  #   # networks:
-  #   #   - backend
-  #   ports:
-  #     - "5169:5150"
-  #   container_name: balena-cam
-  #   labels:
-  #     io.balena.features.kernel-modules: '1'
-
   opencv:
     build: ./opencv
     restart: always
     privileged: true
     container_name: opencv
+    # networks:
+    #   - backend
     ports:
       - "8000:8000"
     labels:
       io.balena.features.kernel-modules: '1'
-#  camera-proxy:
-#    build: ./camera-proxy
-#    restart: always
-#    depends_on:
-#      - balena-cam
-#    ports:
-#      - "8080:8080"
-#    container_name: camera-proxy
+  alertmanager:
+    build: ./alertmanager
+    privileged: true
+    ports:
+      - '9093:9093'
+  alertmanager-discord:
+    build: alertmanager-discord
+    restart: always
+    container_name: alertmanager-discord
+    ports:
+      - "9094:9094"
+    environment:
+      - DISCORD_WEBHOOK=https://discord.com/api/webhooks/843548957270999110/IGYr_zOpZ_qhMIoiYLrGQ8URNCPrf_iXXzi-HpIO68yPsr7rlctYX2WTQEZiSxsS3ska
 
-#  mjpeg_proxy:
-#    build: ./mjpeg_proxy
-#    privileged: true
-#    restart: always
-#    ports:
-#      - "5151:5151"
-#    container_name: mjpeg_proxy
+#   twilio:
+#     build: ./twilio
+#     #    restart: always
+#     privileged: true
+#     container_name: opencv
+#     ports:
+#       - "5152:5152"   # note, if this port is bad, make sure to change the port in /prometheus/alertmanager.yml, too!
+# #    FIX ME: Twilio auth variables used for debugging
+# #    environment:
+# #      - 'TWILIO_ACCOUNT_SID=AC97666081a865104c19f0c2266ce81e08'
+# #      - 'TWILIO_AUTH_TOKEN=189ba47c0d92194d8afc0a2b4e08ca06'
+# #      - 'DEST_NUM=+18135194665'
+# #      - 'HOST_NUM=+13852260092'
 
 # networks:
 #     frontend:
