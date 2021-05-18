@@ -20,7 +20,7 @@
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
         cameraBtn.addEventListener("click", showCamVideo);
-        fetchTempData();
+        //fetchTempData();
         displayCurrentNumber();
     }
 
