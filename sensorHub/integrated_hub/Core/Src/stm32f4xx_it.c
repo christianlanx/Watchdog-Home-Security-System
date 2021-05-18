@@ -48,7 +48,7 @@ extern float audio;
 extern float envelope;
 extern uint8_t audio_array[10];
 extern uint8_t envelope_array[10];
-int message_select = 0;
+int message_select = 2;
 
 /* USER CODE END PV */
 
@@ -229,7 +229,7 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
-  uint8_t default_message[20] = "Hello World!";
+  uint8_t default_message[20] = "3.75";
   HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
 
   if (message_select == 0) {
@@ -240,7 +240,7 @@ void EXTI1_IRQHandler(void)
 	message_select = 0;
   } else {
   	HAL_UART_Transmit(&huart4, default_message, strlen(default_message), HAL_MAX_DELAY);
-	message_select = 0;
+	message_select = 2;
   }	
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
