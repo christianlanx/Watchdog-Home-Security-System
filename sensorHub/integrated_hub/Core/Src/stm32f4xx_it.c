@@ -283,7 +283,7 @@ void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
   HAL_ADC_Start(&hadc2);
-  HAL_ADC_PollFor_Conversion(&hadc2, HAL_MAX_DELAY);
+  HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
   envelope = HAL_ADC_GetValue(&hadc2);
   HAL_ADC_Stop(&hadc2);
   
