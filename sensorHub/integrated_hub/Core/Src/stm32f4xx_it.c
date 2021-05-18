@@ -230,6 +230,7 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
   char default_message[20] = "Hello World!";
+  HAL_GPIO_Toggle(GPIOD, GPIO_PIN_13);
 
   if (message_select == 0) {
  	HAL_UART_Transmit(&huart4, audio_array, strlen(audio_array), 1000);
