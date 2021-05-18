@@ -10,7 +10,7 @@
  "use strict";
 
  (function() {
- 
+
     window.addEventListener("load", init);
     function init() {
         let tempBtn = id("temperature_button");
@@ -19,10 +19,13 @@
         let cameraBtn = id("camera_button");
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
-        cameraBtn.addEventListener("click", showCamVideo)
+        cameraBtn.addEventListener("click", showCamVideo);
+        fetchTempData();
+        displayCurrentNumber();
     }
 
     function showTempGraph() {
+        window.location = "/grafana/d/RyOmzRCMz/sensor-dashboard?orgId=1";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
@@ -32,6 +35,7 @@
     }
 
     function showHumGraph() {
+        window.location = "/grafana/d/RyOmzRCMz/sensor-dashboard?orgId=1";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
@@ -47,6 +51,33 @@
         }
         let graph = id("cam_Video");
         graph.classList.remove("hidden");
+    }
+
+    function displayCurrentNumber() {
+            let currentTime = Date.now();
+            console.log(Math.floor(currentTime/10000)*10000);
+    }
+
+    function fetchTempData() {
+        let url = "http://601a2a7041e556b2ef1fe3e7e566702b.balena-devices.com/grafana/api/dashboards/home";
+
+        fetch(url, {
+            mode: 'no-cors',
+            method: 'GET',
+            Accept: "application/json",
+            ContentType: "application/json",
+            headers: {
+                Authorization: "Bearer + eyJrIjoiSkNhaFVlZERaVzFYekpyeTRNTDg0QzRSYmI1NjFIM1giLCJuIjoiYWRtaW4iLCJpZCI6MX0=",
+            }
+        })
+          .then(checkStatus)
+          .then(resp => resp.json())
+          .then(processTempData)
+          .catch(console.error);
+    }
+
+    function processTempData(tempJson) {
+        console.log(tempJson.status);
     }
 
     /** ------------------------------ Helper Functions  ------------------------------ */
@@ -91,6 +122,11 @@
         return document.createElement(tagName);
     }
 
-
+    async function checkStatus(res) {
+        if (!res.ok) {
+          throw new Error(await res.text());
+        }
+        return res;
+    }
 })();
     
