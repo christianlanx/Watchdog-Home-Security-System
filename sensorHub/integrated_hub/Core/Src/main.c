@@ -56,8 +56,8 @@ UART_HandleTypeDef huart4;
 /* USER CODE BEGIN PV */
 float audio;
 float envelope;
-char audio_array[10];
-char envelope_array[10];
+uint8_t audio_array[10];
+uint8_t envelope_array[10];
 
 /* USER CODE END PV */
 
