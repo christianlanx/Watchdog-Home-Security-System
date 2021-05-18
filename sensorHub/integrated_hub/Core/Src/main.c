@@ -144,8 +144,7 @@ int main(void)
     if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
 	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
     }
-    sprintf(audio_array, "%f", audio_volts);
-    sprintf(envelope_array, "%f", envelope_volts);
+    sprintf(envelope_array, "%d", envelope);
     /* TODO: make ADC a timer interrupt-based deal */
 
   }

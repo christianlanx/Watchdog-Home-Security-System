@@ -46,8 +46,6 @@
 /* USER CODE BEGIN PV */
 extern uint16_t audio;
 extern uint16_t envelope;
-extern float audio_volts;
-extern float envelope_volts;
 extern uint8_t audio_array[50];
 extern uint8_t envelope_array[50];
 int message_select = 1;
@@ -228,7 +226,6 @@ void EXTI0_IRQHandler(void)
   HAL_ADC_Start(&hadc2);
   HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
   envelope = HAL_ADC_GetValue(&hadc2);
-  envelope_volts = (float)envelope/4096 * 5;
   HAL_ADC_Stop(&hadc2);
 
   /* USER CODE END EXTI0_IRQn 0 */
