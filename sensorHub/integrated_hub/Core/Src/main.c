@@ -54,10 +54,12 @@ TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
-float audio;
-float envelope;
-uint8_t audio_array[10];
-uint8_t envelope_array[10];
+uint16_t audio;
+float audio_volts;
+uint16_t envelope;
+float envelope_volts;
+uint8_t audio_array[50];
+uint8_t envelope_array[50];
 
 /* USER CODE END PV */
 
@@ -142,10 +144,9 @@ int main(void)
     if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
 	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
     }
-    HAL_ADC_Start_IT(&hadc1);
-    HAL_ADC_Start_IT(&hadc2);
-    snprintf(audio_array, 5, "%f", audio);
-    snprintf(envelope_array, 5, "%f", envelope);
+    sprintf(audio_array, "%f", audio_volts);
+    sprintf(envelope_array, "%f", envelope_volts);
+    /* TODO: make ADC a timer interrupt-based deal */
 
   }
   /* USER CODE END 3 */

@@ -44,11 +44,13 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-extern float audio;
-extern float envelope;
-extern uint8_t audio_array[10];
-extern uint8_t envelope_array[10];
-int message_select = 2;
+extern uint16_t audio;
+extern uint16_t envelope;
+extern float audio_volts;
+extern float envelope_volts;
+extern uint8_t audio_array[50];
+extern uint8_t envelope_array[50];
+int message_select = 1;
 
 /* USER CODE END PV */
 
@@ -205,7 +207,7 @@ void SysTick_Handler(void)
 /******************************************************************************/
 /* STM32F4xx Peripheral Interrupt Handlers                                    */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
-/* For the available peripheral interrupt handler names,                      */
+/* For the available periphesral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
@@ -216,6 +218,19 @@ void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+  /*
+  HAL_ADC_Start(&hadc1);
+  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+  audio = HAL_ADC_GetValue(&hadc1);
+  audio_volts = (float)audio /4096 * 3.3;
+  HAL_ADC_Stop(&hadc1);
+  */
+  HAL_ADC_Start(&hadc2);
+  HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+  envelope = HAL_ADC_GetValue(&hadc2);
+  envelope_volts = (float)envelope/4096 * 5;
+  HAL_ADC_Stop(&hadc2);
+
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
@@ -229,19 +244,7 @@ void EXTI0_IRQHandler(void)
 void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
-  uint8_t default_message[20] = "3.75";
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
-
-  if (message_select == 0) {
- 	HAL_UART_Transmit(&huart4, audio_array, strlen(audio_array), HAL_MAX_DELAY);
-	message_select = 1;
-  } else if (message_select == 1) {
-	HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
-	message_select = 0;
-  } else {
-  	HAL_UART_Transmit(&huart4, default_message, strlen(default_message), HAL_MAX_DELAY);
-	message_select = 2;
-  }	
+  HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);	
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
   /* USER CODE BEGIN EXTI1_IRQn 1 */
@@ -255,12 +258,13 @@ void EXTI1_IRQHandler(void)
 void ADC_IRQHandler(void)
 {
   /* USER CODE BEGIN ADC_IRQn 0 */
-  if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC)) {
-	  audio = HAL_ADC_GetValue(&hadc1);
-  }
-  if (HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc2), HAL_ADC_STATE_REG_EOC)) {
-	  envelope = HAL_ADC_GetValue(&hadc2);
-  } 
+  /*
+  audio = HAL_ADC_GetValue(&hadc1);
+  envelope = HAL_ADC_GetValue(&hadc2); 
+
+  HAL_ADC_Start_IT(&hadc1);
+  HAL_ADC_Start_IT(&hadc2);
+  */
 
   /* USER CODE END ADC_IRQn 0 */
   HAL_ADC_IRQHandler(&hadc1);
