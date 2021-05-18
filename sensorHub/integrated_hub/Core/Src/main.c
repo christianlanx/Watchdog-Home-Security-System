@@ -144,8 +144,8 @@ int main(void)
     }
     HAL_ADC_Start_IT(&hadc1);
     HAL_ADC_Start_IT(&hadc2);
-    sprintf(audio_array, "%f", audio);
-    sprintf(envelope_array, "%f", envelope);
+    snprintf(audio_array, 5, "%f", audio);
+    snprintf(envelope_array, 5, "%f", envelope);
 
   }
   /* USER CODE END 3 */
