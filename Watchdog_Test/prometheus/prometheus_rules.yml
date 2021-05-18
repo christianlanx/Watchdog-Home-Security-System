@@ -10,3 +10,10 @@ groups:
         annotations:
           summary: "Excessive temperature!"
           description: "Temperature in excess of 70 F (current value: {{ $value }} F)"
+
+      # alert for excessive noise
+      - alert: Excessive Noise
+        expr: sensorhub_noiselevel_db > 4
+        annotations:
+          summary: "Excessive noise!"
+          description: "Noise in excess of 4 dB (current value: {{ $value }} dB)"
