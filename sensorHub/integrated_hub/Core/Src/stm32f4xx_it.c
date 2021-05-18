@@ -236,10 +236,10 @@ void EXTI1_IRQHandler(void)
 	message_select = 1;
   } else if (message_select == 1) {
 	HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), 1000);
-	message_select = 2;
+	message_select = 0;
   } else {
   	HAL_UART_Transmit(&huart4, default_message, strlen(default_message), 1000);
-	message_select = 0;
+	//message_select = 0;
   }	
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
