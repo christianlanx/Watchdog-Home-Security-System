@@ -217,17 +217,6 @@ void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
-  /*
-  HAL_ADC_Start(&hadc1);
-  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-  audio = HAL_ADC_GetValue(&hadc1);
-  audio_volts = (float)audio /4096 * 3.3;
-  HAL_ADC_Stop(&hadc1);
-  */
-  HAL_ADC_Start(&hadc2);
-  HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
-  envelope = HAL_ADC_GetValue(&hadc2);
-  HAL_ADC_Stop(&hadc2);
 
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
@@ -293,7 +282,11 @@ void TIM2_IRQHandler(void)
 void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
-
+  HAL_ADC_Start(&hadc2);
+  HAL_ADC_PollFor_Conversion(&hadc2, HAL_MAX_DELAY);
+  envelope = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
+  
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */

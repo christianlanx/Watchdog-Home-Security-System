@@ -121,6 +121,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   int released = 0;
+  HAL_TIM_Base_Start_IT(&htim3);
 
   /* USER CODE END 2 */
 
@@ -148,7 +149,6 @@ int main(void)
 	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
     }
     sprintf(envelope_array, "%d", envelope);
-    /* TODO: make ADC a timer interrupt-based deal */
 
   }
   /* USER CODE END 3 */
