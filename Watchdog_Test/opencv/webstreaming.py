@@ -90,6 +90,12 @@ vs.set(4, 480)
 # vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
+# Define Prometheus metrics
+CAMERA_MOTIONDETECT = Gauge(
+    'camera_motiondetect',
+    'Motion detected in the current frame'
+)
+
 @app.route("/")
 def index():
     # return the template
@@ -197,7 +203,8 @@ def video_feed():
 def alert():
     # return the response generated along with the specific media
     # return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
-    return Response(mot_det_flag, mimetype=CONTENT_TYPE_LATEST)
+    CAMERA_MOTIONDETECT.set(mot_det_flag)
+    return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':

@@ -17,3 +17,10 @@ groups:
         annotations:
           summary: "Excessive noise!"
           description: "Noise in excess of 4 dB (current value: {{ $value }} dB)"
+        
+      # alert for motion detection
+      - alert: Motion Detected
+        expr: camera_motiondect == 1
+        annotations:
+          summary: "Motion is detected!"
+          description: "Motion has been detected by the camera module."
