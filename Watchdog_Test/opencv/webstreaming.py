@@ -91,8 +91,8 @@ vs.set(4, 480)
 time.sleep(2.0)
 
 # Define Prometheus metrics
-CAMERA_MOTIONDETECT = Gauge(
-    'camera_motiondetect',
+OPENCV_MOTIONDETECT = Gauge(
+    'opencv_motiondetect',
     'Motion detected in the current frame'
 )
 
@@ -203,7 +203,7 @@ def video_feed():
 def alert():
     # return the response generated along with the specific media
     # return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
-    CAMERA_MOTIONDETECT.set(mot_det_flag)
+    OPENCV_MOTIONDETECT.set(mot_det_flag)
     return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
 # check to see if this is the main thread of execution

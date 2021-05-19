@@ -20,7 +20,7 @@ groups:
         
       # alert for motion detection
       - alert: Motion Detected
-        expr: camera_motiondect == 1
+        expr: opencv_motiondect == 1
         annotations:
           summary: "Motion is detected!"
-          description: "Motion has been detected by the camera module."
+          description: "Motion has been detected by OpenCV."
