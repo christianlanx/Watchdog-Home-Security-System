@@ -79,7 +79,7 @@ services:
     build: ./twilio
      #    restart: always
     privileged: true
-    container_name: opencv
+    container_name: twilio
     ports:
       - "5152:5152"   # note, if this port is bad, make sure to change the port in /prometheus/alertmanager.yml, too!
 # #    FIX ME: Twilio auth variables used for debugging
