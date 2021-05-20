@@ -17,18 +17,22 @@ client = Client(account_sid, auth_token)
 
 logger = logging.getLogger(__name__)
 
-latest_message_sid = ""
-
 app = Flask(__name__)
+latest_message_sid = ""
 
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 
 @app.route('/', methods=['POST', 'GET'])
 def send_data():
-
     if request.method == 'POST':
+        print("Successful POST request made to Twilio")
 
         """ ----> Implement the HTTP response stuff from Prometheus here <---- """
+        # data = request.form
+        data = request.get_json()
+
+        print("New ddata sent to Twilio:\n", data)
+        print("The data sent was of type: ", type(data))
 
         """ Prometheus should send JSON's formatting like this:
         {
@@ -50,7 +54,7 @@ def send_data():
                     "endsAt": "<rfc3339>",
                     "generatorURL": <string>       // identifies the entity that caused the alert
                 }
-            ...
+            ]
         }
         
         see https://prometheus.io/docs/alerting/latest/configuration/#webhook_config
@@ -59,10 +63,30 @@ def send_data():
 
         """ ----> Put the f-string if-statements in here to create the message body here <---- """
 
+        """ implement basic message body using data from "alerts" tag in the JSON object """
+        # create variables for each tag in the JSON object we want to use
+        status          = ""
+        labels          = ""
+        annotations     = ""
+        startsAt        = ""
+        endsAt          = ""
+        generatorURL    = ""
+
+        if data.get('alerts'):      # check if 'alerts' tag exists in JSON
+            print("Found 'alerts' section in JSON -- fetching data")
+            status      = data['alerts']['status']
+            labels      = data['alerts']['labels']
+            annotations = data['alerts']['annotations']
+            startsAt    = data['alerts']['startsAt']
+            endsAt      = data['alerts']['endsAt']
+            generatorURL = data['alerts']['generatorURL']
+
+        body = f'Alert update:\nstatus: {status}\nlabel(s): {labels}'
+
         # send the SMS message
         message = client.messages \
                             .create(
-                                 body="Yo the container just started! -Jamie",
+                                 body=body,
                                  from_=host_num,  # used to be `from_='+18135194665'`
                                  to=dest_num      # used to be `to='+13852260092'`
                              )
@@ -71,7 +95,9 @@ def send_data():
         latest_message_sid = message.sid
 
         # print the message ID
-        print("Message sent with ID:\t", latest_message_sid)
+        print("Message sent with ID: ", latest_message_sid)
+
+        return json.dumps(data)
 
 
     elif request.method == 'GET':
@@ -84,6 +110,11 @@ def send_data():
         }
         return json.dumps(string)
 
+        # data = request.form
+        #
+        # print("Data sent to Twilio:\n", data)
+        #
+        # return json.dumps(data)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5152)

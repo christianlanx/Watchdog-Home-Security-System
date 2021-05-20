@@ -13,3 +13,6 @@ receivers:
 - name: discord-webhook
   webhook_configs:
   - url: http://alertmanager-discord:9094
+- name: twilio-webhook
+  webhook_configs:
+    - url: http://twilio:5152
