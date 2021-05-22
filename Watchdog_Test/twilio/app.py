@@ -12,13 +12,14 @@ auth_token = os.environ['TWILIO_AUTH_TOKEN']        # The user's Twilio authenti
 dest_num = os.environ['DEST_NUM']                   # The user's Twilio number used to send alerts
 host_num = os.environ['HOST_NUM']                   # The user's phone number that will recieve alerts
 
+latest_message_sid = ""     # used to keep track of the SID of the last message sent
+
 # set up the Twilio client
 client = Client(account_sid, auth_token)
 
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-latest_message_sid = ""
 
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 
@@ -31,8 +32,8 @@ def send_data():
         # data = request.form
         data = request.get_json()
 
-        print("New ddata sent to Twilio:\n", data)
-        print("The data sent was of type: ", type(data))
+        print("POST request success -- New data sent to Twilio")
+        # print("The data sent was of type: ", type(data))
 
         """ Prometheus should send JSON's formatting like this:
         {
@@ -61,27 +62,26 @@ def send_data():
         for more information
         """
 
-        """ ----> Put the f-string if-statements in here to create the message body here <---- """
-
         """ implement basic message body using data from "alerts" tag in the JSON object """
-        # create variables for each tag in the JSON object we want to use
-        status          = ""
-        labels          = ""
-        annotations     = ""
-        startsAt        = ""
-        endsAt          = ""
-        generatorURL    = ""
 
+        # TODO: create a robust system for creating a message body based on the JSON's sent by Prometheus
         if data.get('alerts'):      # check if 'alerts' tag exists in JSON
-            print("Found 'alerts' section in JSON -- fetching data")
-            status      = data['alerts']['status']
-            labels      = data['alerts']['labels']
-            annotations = data['alerts']['annotations']
-            startsAt    = data['alerts']['startsAt']
-            endsAt      = data['alerts']['endsAt']
-            generatorURL = data['alerts']['generatorURL']
+            alerts_data = data.get('alerts')[0]
+            # print("Found 'alerts' section in JSON -- fetching data")
+            # print("The data found was of type:", type(alerts_data))
+            # print("Let's try to print it:\n", alerts_data )
 
-        body = f'Alert update:\nstatus: {status}\nlabel(s): {labels}'
+        # only send an SMS message if the alert is firing
+        if alerts_data['status'] == "firing":
+
+            """ <insert a ton of if-statements here to create the message body> """
+
+            description = alerts_data['annotations']['description']
+            summary     = alerts_data['annotations']['summary']
+
+            body = f'\nAlert: {description}\nSummary: {summary}'
+        else:
+            body = "Error in SMS body creation. See Balena dashboard for more details."
 
         # send the SMS message
         message = client.messages \
@@ -92,7 +92,7 @@ def send_data():
                              )
 
         # update the latest SID value
-        latest_message_sid = message.sid
+        latest_message_sid = str(message.sid)
 
         # print the message ID
         print("Message sent with ID: ", latest_message_sid)
@@ -101,7 +101,6 @@ def send_data():
 
 
     elif request.method == 'GET':
-        # FIX ME: this is a mess and I don't know how to return a nice HTTP response with just a string ooof
         string = {
 
             # Create Influxdb datapoints (using lineprotocol as of Influxdb >1.1) ??
@@ -109,12 +108,6 @@ def send_data():
             'latest_message_sid': latest_message_sid,
         }
         return json.dumps(string)
-
-        # data = request.form
-        #
-        # print("Data sent to Twilio:\n", data)
-        #
-        # return json.dumps(data)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5152)
