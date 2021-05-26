@@ -1,0 +1,11 @@
+"{
+            "alerts":
+                {
+                    "status": "<firing>",
+                    "labels": "test_message",
+                    "annotations": "none",
+                    "startsAt": "<rfc3339>",
+                    "endsAt": "<rfc3339>",
+                    "generatorURL": "bbbet"
+                }
+        }"

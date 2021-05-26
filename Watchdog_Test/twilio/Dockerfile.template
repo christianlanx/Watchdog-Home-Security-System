@@ -23,6 +23,8 @@ RUN READTHEDOCS=True pip install -r requirements.txt
 # Copy all files in our root to the working directory of the container
 COPY . ./
 
+EXPOSE 5152
+
 # main.py will run when the container starts up on the device
 # CMD ["python","-u","webstreaming.py", "--ip", "0.0.0.0", "--port", "8000", "--frame-count", "16"]
 CMD ["python", "-u", "app.py"]
