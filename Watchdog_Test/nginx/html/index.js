@@ -25,7 +25,7 @@
     }
 
     function showTempGraph() {
-        window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
+        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
@@ -35,7 +35,7 @@
     }
 
     function showHumGraph() {
-        window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286683896&to=1621373083896&panelId=4";
+        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286683896&to=1621373083896&panelId=4";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
