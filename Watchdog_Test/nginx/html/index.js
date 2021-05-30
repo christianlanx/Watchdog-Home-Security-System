@@ -1,144 +1,90 @@
-/**
- * Name: Joseph Chao
- * Date: 10/29
- * Section: CSE 154 AJ, Lauren Krieger
- *
- * -- your description of what this file does here --
- * Do not keep comments from this template in any work you submit (functions included under "Helper
- * functions" are an exception, you may keep the function names/comments of id/qs/qsa/gen)
- */
- "use strict";
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Watch Dog!</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1 style="color:navy;">
+      <a class="las la-eye"></a>
+      Watch Dog
+      <a class="las la-eye"></a>
+    </h1>
+    <header>
+      <button id = "temperature_button">
+          <span class = "dataLink">Temperature</span>
+          <i id = "temperature" class="las la-temperature-high"></i>
+        </a>
+      </button>
+      <button id = "humidity_button">
+          <span class = "dataLink">Humidity</span>
+          <i id = "water" class="las la-water"></i>
+        </a>
+      </button>
+      <button id = "alarm_button">
+          <span class = "dataLink">Motion Detect</span>
+          <i id = "alarm" class="las la-exclamation-triangle"></i>
+        </a>
+      </button>
+      <button id = "camera_button">
+          <span class = "dataLink">Camera</span>
+          <i id = "camera" class="las la-video"></i>
+      </button>
+      <button id = "dashboard_button">
+        <span class = "dataLink">Grafana dashboard</span>
+      </button>
+    </header>
+    <main>
+      <section>
+        <article id = "board">
+          <div class = "card">
+            <div>
+              <p>Temperature</p>
+              <iframe id = "current_temp" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=12" width="200" height="150" frameborder="0"></iframe>
+            </div>
+            <div>
+              <i id = "temperature" class="las la-temperature-high"></i>
+            </div>
+          </div>
+          <div class = "card">
+            <div>
+              <p>Humidity</p>
+              <iframe id = "current_humd" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=14" width="200" height="150" frameborder="0"></iframe>
+            </div>
+            <div>
+              <i id = "water" class="las la-water"></i>
+            </div>
+          </div>
+          <div class = "card">
+            <div>
+              <p>Motion Detect</p>
+              <iframe id = "current_motion" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=22" width="200" height="150" frameborder="0"></iframe>
+            </div>
+            <div>
+              <i id = "alarm" class="las la-exclamation-triangle"></i>
+            </div>
+          </div>
+        </article>
 
- (function() {
-
-    window.addEventListener("load", init);
-    function init() {
-        let tempBtn = id("temperature_button");
-        let humBtn = id("humidity_button");
-        let alarmBtn = id("alarm_button");
-        let cameraBtn = id("camera_button");
-        tempBtn.addEventListener("click", showTempGraph);
-        humBtn.addEventListener("click", showHumGraph);
-        cameraBtn.addEventListener("click", showCamVideo);
-        //fetchData();
-        displayCurrentNumber();
-        //setInterval(reloadCurrent, 5000);
-        //setInterval(reloadCurrent, 500000);
-    }
-
-    function reloadCurrent() {
-        id("current_temp").src = id("current_temp").src;
-        id("current_humd").src = id("current_humd").src;
-    }
-
-    function reloadGraph() {
-        id("temp_frame").src = id("temp_frame").src;
-        id("humd_frame").src = id("humd_frame").src;
-        id("hardware_frame").src = id("hardware_frame").src;
-    }
-
-    function fetchData() {
-        let url = "http://192.168.50.168/grafana/api/dashboards/id/1/permissions";
-
-        fetch(url, {
-            mode: 'no-cors',
-            method: 'GET',
-            Accept: "application/json",
-            ContentType: "application/json",
-            hideFromInspector: "false",
-        })
-          .then(checkStatus)
-          .then(resp => resp.json())
-          .then(processData)
-          .catch(console.error);
-    }
-
-    function processData(tempJson) {
-        console.log(tempJson.status);
-    }
-
-    function showTempGraph() {
-        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
-        let allGraphs = qsa("#dashboard div");
-        for (let i = 0; i < allGraphs.length; i++) {
-            allGraphs[i].classList.add("hidden");
-        }
-        let graph = id("temp_Graph");
-        graph.classList.remove("hidden");
-    }
-
-    function showHumGraph() {
-        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286683896&to=1621373083896&panelId=4";
-        let allGraphs = qsa("#dashboard div");
-        for (let i = 0; i < allGraphs.length; i++) {
-            allGraphs[i].classList.add("hidden");
-        }
-        let graph = id("hum_Graph");
-        graph.classList.remove("hidden");
-    }
-
-    function showCamVideo() {
-        let allGraphs = qsa("#dashboard div");
-        for (let i = 0; i < allGraphs.length; i++) {
-            allGraphs[i].classList.add("hidden");
-        }
-        let graph = id("cam_Video");
-        graph.classList.remove("hidden");
-    }
-
-    function displayCurrentNumber() {
-            let currentTime = Date.now();
-            console.log(Math.floor(currentTime/10000)*10000);
-    }
-
-
-    /** ------------------------------ Helper Functions  ------------------------------ */
-    /**
-    * Note: You may use these in your code, but remember that your code should not have
-    * unused functions. Remove this comment in your own code.
-    */
-
-        /**
-     * Returns the element that has the ID attribute with the specified value.
-     * @param {string} idName - element ID
-     * @returns {object} DOM object associated with id.
-     */
-    function id(idName) {
-        return document.getElementById(idName);
-    }
-
-    /**
-     * Returns the first element that matches the given CSS selector.
-     * @param {string} selector - CSS query selector.
-     * @returns {object} The first DOM object matching the query.
-     */
-    function qs(selector) {
-        return document.querySelector(selector);
-    }
-
-    /**
-     * Returns the array of elements that match the given CSS selector.
-     * @param {string} selector - CSS query selector
-     * @returns {object[]} array of DOM objects matching the query.
-     */
-    function qsa(selector) {
-        return document.querySelectorAll(selector);
-    }
-
-    /**
-     * Returns a new element with the given tag name.
-     * @param {string} tagName - HTML tag name for new DOM element.
-     * @returns {object} New DOM object for given HTML tag.
-     */
-    function gen(tagName) {
-        return document.createElement(tagName);
-    }
-
-    async function checkStatus(res) {
-        if (!res.ok) {
-          throw new Error(await res.text());
-        }
-        return res;
-    }
-})();
-    
+        <article id = "dashboard">
+          <div id = "temp_Graph" class = "hidden">
+            <iframe id = "temp_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=10" width="550" height="450" frameborder="0"></iframe>
+          </div>
+          <div id = "hum_Graph" class = "hidden">
+            <iframe id = "humd_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=4" width="550" height="450" frameborder="0"></iframe>
+          </div>
+          <div id = "motion_Graph" class = "hidden">
+            <iframe id = "humd_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=20" width="550" height="450" frameborder="0"></iframe>
+          </div>
+          <div id = "cam_Video" class = "hidden">
+            <iframe class = "hidden" src="/camera/"  width="450" height="500" frameborder="0"></iframe>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
