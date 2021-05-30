@@ -11,6 +11,10 @@ services:
     #   - frontend
     #   - backend
     container_name: nginx
+    depends_on:
+      - "grafana"
+      - "opencv"
+
   prometheus:
     build: ./prometheus
     ports:
@@ -19,6 +23,11 @@ services:
     #   - frontend
     #   - backend
     container_name: prometheus
+    depends_on:
+      - "bme280"
+      # - "sensorhub"
+      - "node_exporter"
+
   grafana:
     build: ./grafana
     ports: 
@@ -31,6 +40,7 @@ services:
         - grafana_usr:/usr/share/grafana 
         - grafana_var:/var/lib/grafana
     container_name: grafana
+
   bme280:
     build: ./bme280
     privileged: true
@@ -39,17 +49,20 @@ services:
     # networks:
     #   - backend
     container_name: bme280
+
 #  sensorhub:
 #    build: ./sensorHubPy
 #    privileged: true
 #    ports:
 #      - "5000:5000"
 #    container_name: sensorhub
+  
   node_exporter:
     build: ./node_exporter
     # networks:
     #   - backend
     container_name: node_exporter
+
   opencv:
     build: ./opencv
     restart: always
@@ -66,6 +79,9 @@ services:
     privileged: true
     ports:
       - '9093:9093'
+    depends_on:
+      - "prometheus"
+
   alertmanager-discord:
     build: alertmanager-discord
     restart: always

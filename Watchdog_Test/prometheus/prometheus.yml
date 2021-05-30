@@ -1,7 +1,7 @@
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
-  scrape_timeout: 10s
+  scrape_interval: 5s
+  evaluation_interval: 5s
+  scrape_timeout: 5s
 
 rule_files:
   - prometheus_rules.yml
@@ -18,7 +18,7 @@ scrape_configs:
     static_configs:
     - targets: ['bme280:5000']
   - job_name: sensorhub
-    scrape_interval: 5s
+    scrape_interval: 1s
     scrape_timeout: 1s
     honor_timestamps: true
     metrics_path: /metrics
@@ -30,7 +30,7 @@ scrape_configs:
     static_configs:
     - targets: ['node_exporter:9100']
   - job_name: opencv
-    scrape_interval: 5s
+    scrape_interval: 1s
     scrape_timeout: 1s
     honor_timestamps: true
     metrics_path: /alert

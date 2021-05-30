@@ -1,3 +1,4 @@
+import os
 import time
 import board
 import busio
@@ -24,41 +25,52 @@ app = Flask(__name__)
 
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 
+# grab the device name
+device_name = os.environ.get('BALENA_DEVICE_NAME_AT_INIT')
+
 # Create a metrics to track sensor data
 BME280_TEMPERATURE = Gauge(
     'bme280_temperature_celsius', 
-    'Temperature sensed by the BME280'
+    'Temperature sensed by the BME280',
+    ['device_name']
 )
+BME280_TEMPERATURE.labels(device_name)
 BME280_RELATIVE_HUMIDITY = Gauge(
     'bme280_relative_humidity',
-    'Humidity sensed by the BME280'
+    'Humidity sensed by the BME280',
+    ['device_name']
 )
+BME280_RELATIVE_HUMIDITY.labels(device_name)
 BME280_PRESSURE = Gauge(
     'bme280_pressure_hPa',
-    'Pressure sensed by the BME280'
+    'Pressure sensed by the BME280',
+    ['device_name']
 )
+BME280_PRESSURE.labels(device_name)
 BME280_ALTITUDE = Gauge(
     'bme280_altitude_meters',
-    'Altitude sensed by the BME280'
+    'Altitude sensed by the BME280',
+    ['device_name']
 )
+BME280_ALTITUDE.labels(device_name)
 
 @app.route('/metrics', methods=['GET'])
 def get_data():
     """Returns all data as plaintext."""
     try:
-        BME280_TEMPERATURE.set(bme280.temperature)
+        BME280_TEMPERATURE.labels(device_name=device_name).set(bme280.temperature)
     except Exception as e:
         logger.error("Failed to update temperature. Exception: {}".format(e))
     try:
-        BME280_RELATIVE_HUMIDITY.set(bme280.relative_humidity)
+        BME280_RELATIVE_HUMIDITY.labels(device_name=device_name).set(bme280.relative_humidity)
     except Exception as e:
         logger.error("Failed to update relative humidity. Exception: {}".format(e))
     try:
-        BME280_PRESSURE.set(bme280.pressure)
+        BME280_PRESSURE.labels(device_name=device_name).set(bme280.pressure)
     except Exception as e:
         logger.error("Failed to update pressure. Exception: {}".format(e))
     try:
-        BME280_ALTITUDE.set(bme280.altitude)
+        BME280_ALTITUDE.labels(device_name=device_name).set(bme280.altitude)
     except Exception as e:
         logger.error("Failed to update altitude. Exception: {}".format(e))
 

@@ -9,18 +9,18 @@ groups:
         expr: bme280_temperature_fahrenheit > 70
         annotations:
           summary: "Excessive temperature!"
-          description: "Temperature in excess of 70 F (current value: {{ $value }} F)"
+          description: "Temperature in excess of 70 F (current value: {{ $value }} F) on {{ $labels.device_name }}"
 
       # alert for excessive noise
       - alert: Excessive Noise
         expr: sensorhub_noiselevel_db > 4
         annotations:
           summary: "Excessive noise!"
-          description: "Noise in excess of 4 dB (current value: {{ $value }} dB)"
+          description: "Noise in excess of 4 dB (current value: {{ $value }} dB) on {{ $labels.device_name }}"
         
       # alert for motion detection
       - alert: Motion Detected
-        expr: opencv_motiondect == 1
+        expr: opencv_motiondetect != 0
         annotations:
           summary: "Motion is detected!"
-          description: "Motion has been detected by OpenCV."
+          description: "Motion has been detected by OpenCV on {{ $labels.device_name }}."

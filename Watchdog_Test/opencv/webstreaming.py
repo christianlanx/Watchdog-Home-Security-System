@@ -91,11 +91,15 @@ vs.set(4, 480)
 # vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
+
 # Define Prometheus metrics
+device_name = os.environ.get('BALENA_DEVICE_NAME_AT_INIT')
 OPENCV_MOTIONDETECT = Gauge(
     'opencv_motiondetect',
-    'Motion detected in the current frame'
+    'Motion detected in the current frame',
+    ['device_name']
 )
+OPENCV_MOTIONDETECT.labels(device_name)
 
 @app.route("/")
 def index():
@@ -212,7 +216,7 @@ def alert():
 
     global mot_det_sum      # let the script make changes the variable defined outside its scope
 
-    OPENCV_MOTIONDETECT.set(mot_det_sum)    # set gauge to value of our cumulative sum
+    OPENCV_MOTIONDETECT.labels(device_name=device_name).set(mot_det_sum)    # set gauge to value of our cumulative sum
     mot_det_sum = 0                         # reset the cumulative sum value
     return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
