@@ -20,8 +20,41 @@
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
         cameraBtn.addEventListener("click", showCamVideo);
-        //fetchTempData();
+        //fetchData();
         displayCurrentNumber();
+        //setInterval(reloadCurrent, 5000);
+        //setInterval(reloadCurrent, 500000);
+    }
+
+    function reloadCurrent() {
+        id("current_temp").src = id("current_temp").src;
+        id("current_humd").src = id("current_humd").src;
+    }
+
+    function reloadGraph() {
+        id("temp_frame").src = id("temp_frame").src;
+        id("humd_frame").src = id("humd_frame").src;
+        id("hardware_frame").src = id("hardware_frame").src;
+    }
+
+    function fetchData() {
+        let url = "http://192.168.50.168/grafana/api/dashboards/id/1/permissions";
+
+        fetch(url, {
+            mode: 'no-cors',
+            method: 'GET',
+            Accept: "application/json",
+            ContentType: "application/json",
+            hideFromInspector: "false",
+        })
+          .then(checkStatus)
+          .then(resp => resp.json())
+          .then(processData)
+          .catch(console.error);
+    }
+
+    function processData(tempJson) {
+        console.log(tempJson.status);
     }
 
     function showTempGraph() {
@@ -58,27 +91,6 @@
             console.log(Math.floor(currentTime/10000)*10000);
     }
 
-    function fetchTempData() {
-        let url = "http://601a2a7041e556b2ef1fe3e7e566702b.balena-devices.com/grafana/api/dashboards/home";
-
-        fetch(url, {
-            mode: 'no-cors',
-            method: 'GET',
-            Accept: "application/json",
-            ContentType: "application/json",
-            headers: {
-                Authorization: "Bearer + eyJrIjoiSkNhaFVlZERaVzFYekpyeTRNTDg0QzRSYmI1NjFIM1giLCJuIjoiYWRtaW4iLCJpZCI6MX0=",
-            }
-        })
-          .then(checkStatus)
-          .then(resp => resp.json())
-          .then(processTempData)
-          .catch(console.error);
-    }
-
-    function processTempData(tempJson) {
-        console.log(tempJson.status);
-    }
 
     /** ------------------------------ Helper Functions  ------------------------------ */
     /**
