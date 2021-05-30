@@ -26,13 +26,16 @@
         </a>
       </button>
       <button id = "alarm_button">
-          <span class = "dataLink">Door Alarm</span>
+          <span class = "dataLink">Motion Detect</span>
           <i id = "alarm" class="las la-exclamation-triangle"></i>
         </a>
       </button>
       <button id = "camera_button">
           <span class = "dataLink">Camera</span>
           <i id = "camera" class="las la-video"></i>
+      </button>
+      <button id = "dashboard_button">
+        <span class = "dataLink">Grafana dashboard</span>
       </button>
     </header>
     <main>
@@ -41,7 +44,7 @@
           <div class = "card">
             <div>
               <p>Temperature</p>
-              <iframe id = "current_temp" src="/grafana/d-solo/hb7fSE0Zz/node-exporter?orgId=1&from=now-5min&to=now&refresh=5s&panelId=20" width="250" height="200" frameborder="0"></iframe>
+              <iframe id = "current_temp" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=12" width="200" height="150" frameborder="0"></iframe>
             </div>
             <div>
               <i id = "temperature" class="las la-temperature-high"></i>
@@ -50,7 +53,7 @@
           <div class = "card">
             <div>
               <p>Humidity</p>
-              <iframe id = "current_humd" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&refresh=10s&from=1622189859579&to=1622233059579&panelId=14" width="250" height="200" frameborder="0"></iframe>
+              <iframe id = "current_humd" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=14" width="200" height="150" frameborder="0"></iframe>
             </div>
             <div>
               <i id = "water" class="las la-water"></i>
@@ -58,8 +61,8 @@
           </div>
           <div class = "card">
             <div>
-              <p>Door alarm</p>
-              <h1>On</h1>
+              <p>Motion Detect</p>
+              <iframe id = "current_motion" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-10s&to=now&refresh=5s&theme=light&panelId=22" width="200" height="150" frameborder="0"></iframe>
             </div>
             <div>
               <i id = "alarm" class="las la-exclamation-triangle"></i>
@@ -69,13 +72,15 @@
 
         <article id = "dashboard">
           <div id = "temp_Graph" class = "hidden">
-            <iframe id = "temp_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=10s&panelId=10" width="550" height="450" frameborder="0"></iframe>
+            <iframe id = "temp_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=10" width="550" height="450" frameborder="0"></iframe>
           </div>
           <div id = "hum_Graph" class = "hidden">
-            <iframe id = "humd_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=10s&panelId=4" width="550" height="450" frameborder="0"></iframe>
+            <iframe id = "humd_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=4" width="550" height="450" frameborder="0"></iframe>
+          </div>
+          <div id = "motion_Graph" class = "hidden">
+            <iframe id = "humd_frame" src="/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=now-12h&to=now&refresh=1m&panelId=20" width="550" height="450" frameborder="0"></iframe>
           </div>
           <div id = "cam_Video" class = "hidden">
-            <iframe id = "hardware_frame" src="/grafana/d-solo/hb7fSE0Zz/node-exporter?orgId=1&from=now-2m&to=now&refresh=10s&panelId=13"" width="650" height="450" frameborder="0"></iframe>
             <iframe class = "hidden" src="/camera/"  width="450" height="500" frameborder="0"></iframe>
           </div>
         </article>
