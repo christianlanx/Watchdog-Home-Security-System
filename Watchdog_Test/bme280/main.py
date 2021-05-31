@@ -28,7 +28,7 @@ bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
 # bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
 # Defaults to 1013.25 hPa. Override via service variables.
-bme280.sea_level_pressure = os.environ.get('SEA_LEVEL_PRESSURE')
+bme280.sea_level_pressure = float(os.environ.get('SEA_LEVEL_PRESSURE'))
 
 logger = logging.getLogger(__name__)
 
