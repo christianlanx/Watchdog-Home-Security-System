@@ -1,4 +1,5 @@
 route:
+  # TODO: Configure the alerts to be less annoying
   group_by: [Alertname]
   receiver: multi-webhook
   group_wait: 20s

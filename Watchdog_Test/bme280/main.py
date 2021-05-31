@@ -1,9 +1,20 @@
+'''
+Author: Christian Lancaster
+Name: BME280 exporter
+Function: 
+    - Connects to BME280 over i2c. 
+    - Retrieves sensor data and publishes to metrics endpoint
+'''
+
+# Standard Library Imports
 import os
 import time
-import board
 import busio
-import adafruit_bme280
 import logging
+
+# Third-Party Imports
+import board
+import adafruit_bme280
 from flask import Flask, send_file, request, Response
 from prometheus_client import start_http_server, Gauge, generate_latest
 
@@ -16,8 +27,8 @@ bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
 # bme_cs = digitalio.DigitalInOut(board.D10)
 # bme280 = adafruit_bme280.Adafruit_BME280_SPI(spi, bme_cs)
 
-# change this to    match the location's pressure (hPa) at sea level
-bme280.sea_level_pressure = 1013.25
+# Defaults to 1013.25 hPa. Override via service variables.
+bme280.sea_level_pressure = os.environ.get('SEA_LEVEL_PRESSURE')
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +40,7 @@ CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 device_name = os.environ.get('BALENA_DEVICE_NAME_AT_INIT')
 
 # Create a metrics to track sensor data
+# Include name, description, and label names
 BME280_TEMPERATURE = Gauge(
     'bme280_temperature_celsius', 
     'Temperature sensed by the BME280',
