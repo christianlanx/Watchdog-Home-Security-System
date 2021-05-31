@@ -19,6 +19,7 @@
         let cameraBtn = id("camera_button");
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
+        alarmBtn.addEventListener("click", showMotionGraph);
         cameraBtn.addEventListener("click", showCamVideo);
         //fetchData();
         displayCurrentNumber();
@@ -64,6 +65,16 @@
             allGraphs[i].classList.add("hidden");
         }
         let graph = id("temp_Graph");
+        graph.classList.remove("hidden");
+    }
+
+    function showMotionGraph() {
+        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
+        let allGraphs = qsa("#dashboard div");
+        for (let i = 0; i < allGraphs.length; i++) {
+            allGraphs[i].classList.add("hidden");
+        }
+        let graph = id("motion_Graph");
         graph.classList.remove("hidden");
     }
 
