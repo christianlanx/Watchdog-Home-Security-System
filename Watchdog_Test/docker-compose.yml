@@ -3,6 +3,17 @@
 #TODO: fix grafana volumes to allow dashboard updates
 
 version: "2.0"
+
+# networks:
+#     frontend:
+#     backend:
+
+volumes:
+  grafana_etc:
+  grafana_usr:
+  grafana_var:
+  prometheus_data: {}
+
 services:
   nginx:
     build: ./nginx
@@ -18,12 +29,14 @@ services:
 
   prometheus:
     build: ./prometheus
+    container_name: prometheus
+    volumes:
+      - prometheus_data:/prometheus
     ports:
       - "9090:9090"
     # networks:
     #   - frontend
     #   - backend
-    container_name: prometheus
     depends_on:
       - "bme280"
       # - "sensorhub"
@@ -78,6 +91,7 @@ services:
   
   alertmanager:
     build: ./alertmanager
+    container_name: alertmanager
     privileged: true
     ports:
       - '9093:9093'
@@ -106,12 +120,3 @@ services:
 # #      - 'TWILIO_AUTH_TOKEN='
 # #      - 'DEST_NUM='
 # #      - 'HOST_NUM='
-
-# networks:
-#     frontend:
-#     backend:
-
-volumes:
-    grafana_etc:
-    grafana_usr:
-    grafana_var:
