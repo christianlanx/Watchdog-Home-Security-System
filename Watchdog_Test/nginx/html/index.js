@@ -17,10 +17,12 @@
         let humBtn = id("humidity_button");
         let alarmBtn = id("alarm_button");
         let cameraBtn = id("camera_button");
+        let dashboardBtn = id("dashboard_button");
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
         alarmBtn.addEventListener("click", showMotionGraph);
         cameraBtn.addEventListener("click", showCamVideo);
+        dashboardBtn.addEventListener("click", showGraph);
         //fetchData();
         displayCurrentNumber();
         //setInterval(reloadCurrent, 5000);
@@ -38,24 +40,8 @@
         id("hardware_frame").src = id("hardware_frame").src;
     }
 
-    function fetchData() {
-        let url = "http://192.168.50.168/grafana/api/dashboards/id/1/permissions";
-
-        fetch(url, {
-            mode: 'no-cors',
-            method: 'GET',
-            Accept: "application/json",
-            ContentType: "application/json",
-            hideFromInspector: "false",
-        })
-          .then(checkStatus)
-          .then(resp => resp.json())
-          .then(processData)
-          .catch(console.error);
-    }
-
-    function processData(tempJson) {
-        console.log(tempJson.status);
+    function showGraph() {
+        window.location = "/grafana/d/RyOmzRCMz/sensor-dashboard?orgId=1";
     }
 
     function showTempGraph() {
