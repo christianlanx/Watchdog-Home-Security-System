@@ -42,6 +42,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
+extern uint16_t envelope;
+extern uint8_t envelope_array[50];
 
 /* USER CODE END PV */
 
@@ -60,6 +62,8 @@ extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
+extern ADC_HandleTypeDef hadc2;
+extern UART_HandleTypeDef huart4;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -208,6 +212,7 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
@@ -222,6 +227,10 @@ void TIM2_IRQHandler(void)
 void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
+  HAL_ADC_Start(&hadc2);
+  HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+  envelope = HAL_ADC_GetValue(&hadc2);
+  HAL_ADC_Stop(&hadc2);
 
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
@@ -236,6 +245,7 @@ void TIM3_IRQHandler(void)
 void TIM4_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM4_IRQn 0 */
+  HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
 
   /* USER CODE END TIM4_IRQn 0 */
   HAL_TIM_IRQHandler(&htim4);

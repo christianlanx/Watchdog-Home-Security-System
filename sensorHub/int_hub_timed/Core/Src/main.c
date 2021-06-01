@@ -23,6 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <string.h>
 
 /* USER CODE END Includes */
 
@@ -52,6 +54,8 @@ TIM_HandleTypeDef htim4;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
+uint16_t envelope;
+uint8_t envelope_array[50];
 
 /* USER CODE END PV */
 
@@ -111,6 +115,9 @@ int main(void)
   MX_UART4_Init();
   MX_USB_HOST_Init();
   /* USER CODE BEGIN 2 */
+  int released = 0;
+  HAL_TIM_Base_Start_IT(&htim3);
+  HAL_TIM_Base_Start_IT(&htim4);
 
   /* USER CODE END 2 */
 
@@ -122,6 +129,23 @@ int main(void)
     MX_USB_HOST_Process();
 
     /* USER CODE BEGIN 3 */
+    // Door sensor
+    if (!HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && !released) {
+	    released = 1;
+	    HAL_TIM_Base_Start_IT(&htim2);
+    } else if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) && released) {
+	    HAL_TIM_Base_Stop_IT(&htim2);
+	    TIM2->CNT = 0;
+	    released = 0;
+	    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+    }
+
+    // sound sensor
+    if (!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
+	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+    }
+    sprintf(envelope_array, "%d", envelope);
+
   }
   /* USER CODE END 3 */
 }

@@ -96,6 +96,7 @@ SZ = $(PREFIX)size
 endif
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
+AR = $(PREFIX)ar
  
 #######################################
 # CFLAGS
