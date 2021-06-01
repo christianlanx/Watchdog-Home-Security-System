@@ -14,10 +14,10 @@ groups:
 
       # alert for excessive noise
       - alert: Excessive Noise
-        expr: sensorhub_noiselevel_db > 4
+        expr: sensorhub_noiselevel > 800
         annotations:
           summary: "Excessive noise!"
-          description: "Noise in excess of 4 dB (current value: {{ $value }} dB) on {{ $labels.device_name }}"
+          description: "Noise in excess of 800 (current value: {{ $value }} dB) on {{ $labels.device_name }}"
         
       # alert for motion detection
       - alert: Motion Detected

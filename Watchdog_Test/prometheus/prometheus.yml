@@ -18,7 +18,7 @@ scrape_configs:
   - job_name: sensorhub
     metrics_path: /metrics
     static_configs:
-    - targets: ['sensorhub:5000']
+    - targets: ['sensorhub:5001']
   - job_name: node_exporter
     metrics_path: /metrics
     static_configs:

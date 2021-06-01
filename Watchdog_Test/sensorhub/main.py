@@ -6,7 +6,7 @@ import serial
 from flask import Flask, Response
 from prometheus_client import Gauge, generate_latest
 
-serial_data = lambda : str(serial.Serial("/dev/serial0", baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=5).read(3))
+serial_data = lambda : int(str(serial.Serial("/dev/serial0", baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=5).read(3))[2:-1])
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
