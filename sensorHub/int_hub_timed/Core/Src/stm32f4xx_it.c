@@ -62,6 +62,8 @@ extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
+extern UART_HandleTypeDef huart4;
+extern ADC_HandleTypeDef hadc2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -210,6 +212,7 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
 
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
@@ -257,9 +260,9 @@ void TIM3_IRQHandler(void)
 void TIM4_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM4_IRQn 0 */
-  //HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
-  uint8_t msg[50] = "Hello World!";
-  HAL_UART_Transmit(&huart4, msg, strlen(msg), HAL_MAX_DELAY);
+  HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
+  //uint8_t msg[50] = "Hello World!";
+  //HAL_UART_Transmit(&huart4, msg, strlen(msg), HAL_MAX_DELAY);
   /* USER CODE END TIM4_IRQn 0 */
   HAL_TIM_IRQHandler(&htim4);
   /* USER CODE BEGIN TIM4_IRQn 1 */

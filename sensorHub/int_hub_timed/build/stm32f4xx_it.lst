@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
   28:Core/Src/stm32f4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
   29:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN TD */
   30:Core/Src/stm32f4xx_it.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 2
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 2
 
 
   31:Core/Src/stm32f4xx_it.c **** /* USER CODE END TD */
@@ -95,8 +95,8 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
   62:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim2;
   63:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim3;
   64:Core/Src/stm32f4xx_it.c **** extern TIM_HandleTypeDef htim4;
-  65:Core/Src/stm32f4xx_it.c **** extern ADC_HandleTypeDef hadc2;
-  66:Core/Src/stm32f4xx_it.c **** extern UART_HandleTypeDef huart4;
+  65:Core/Src/stm32f4xx_it.c **** extern UART_HandleTypeDef huart4;
+  66:Core/Src/stm32f4xx_it.c **** extern ADC_HandleTypeDef hadc2;
   67:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN EV */
   68:Core/Src/stm32f4xx_it.c **** 
   69:Core/Src/stm32f4xx_it.c **** /* USER CODE END EV */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
   35              	.L2:
   79:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
   80:Core/Src/stm32f4xx_it.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 3
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 3
 
 
   81:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
   70              		.syntax unified
   71              		.thumb
   72              		.thumb_func
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 4
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 4
 
 
   73              		.fpu fpv4-sp-d16
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  107              	.L8:
  124:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
  125:Core/Src/stm32f4xx_it.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 5
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 5
 
 
  126:Core/Src/stm32f4xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  142              		.syntax unified
  143              		.thumb
  144              		.thumb_func
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 6
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 6
 
 
  145              		.fpu fpv4-sp-d16
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  175 0000 7047     		bx	lr
  176              		.cfi_endproc
  177              	.LFE241:
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 7
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 7
 
 
  179              		.section	.text.PendSV_Handler,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  217              		.cfi_offset 14, -4
  193:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
  194:Core/Src/stm32f4xx_it.c **** 
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 8
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 8
 
 
  195:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
@@ -434,14 +434,14 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  222 0006 08BD     		pop	{r3, pc}
  223              		.cfi_endproc
  224              	.LFE243:
- 226              		.section	.text.TIM2_IRQHandler,"ax",%progbits
+ 226              		.section	.text.EXTI0_IRQHandler,"ax",%progbits
  227              		.align	1
- 228              		.global	TIM2_IRQHandler
+ 228              		.global	EXTI0_IRQHandler
  229              		.syntax unified
  230              		.thumb
  231              		.thumb_func
  232              		.fpu fpv4-sp-d16
- 234              	TIM2_IRQHandler:
+ 234              	EXTI0_IRQHandler:
  235              	.LFB244:
  201:Core/Src/stm32f4xx_it.c **** 
  202:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
@@ -452,9 +452,9 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  207:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
  208:Core/Src/stm32f4xx_it.c **** 
  209:Core/Src/stm32f4xx_it.c **** /**
- 210:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM2 global interrupt.
+ 210:Core/Src/stm32f4xx_it.c ****   * @brief This function handles EXTI line0 interrupt.
  211:Core/Src/stm32f4xx_it.c ****   */
- 212:Core/Src/stm32f4xx_it.c **** void TIM2_IRQHandler(void)
+ 212:Core/Src/stm32f4xx_it.c **** void EXTI0_IRQHandler(void)
  213:Core/Src/stm32f4xx_it.c **** {
  236              		.loc 1 213 1 is_stmt 1 view -0
  237              		.cfi_startproc
@@ -465,8 +465,8 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  242              		.cfi_def_cfa_offset 8
  243              		.cfi_offset 3, -8
  244              		.cfi_offset 14, -4
- 214:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 0 */
- 215:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+ 214:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 0 */
+ 215:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
  245              		.loc 1 215 3 view .LVU30
  246 0002 0122     		movs	r2, #1
  247 0004 0221     		movs	r1, #2
@@ -474,303 +474,327 @@ ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 1
  249 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
  250              	.LVL1:
  216:Core/Src/stm32f4xx_it.c **** 
- 217:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 0 */
- 218:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim2);
+ 217:Core/Src/stm32f4xx_it.c ****   /* USER CODE END EXTI0_IRQn 0 */
+ 218:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
  251              		.loc 1 218 3 view .LVU31
- 252 000c 0248     		ldr	r0, .L18+4
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 9
+ 252 000c 0120     		movs	r0, #1
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 9
 
 
- 253 000e FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 253 000e FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
  254              	.LVL2:
- 219:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 1 */
+ 219:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN EXTI0_IRQn 1 */
  220:Core/Src/stm32f4xx_it.c **** 
- 221:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 1 */
+ 221:Core/Src/stm32f4xx_it.c ****   /* USER CODE END EXTI0_IRQn 1 */
  222:Core/Src/stm32f4xx_it.c **** }
  255              		.loc 1 222 1 is_stmt 0 view .LVU32
  256 0012 08BD     		pop	{r3, pc}
  257              	.L19:
  258              		.align	2
  259              	.L18:
- 260 0014 00000240 		.word	1073872896
- 261 0018 00000000 		.word	htim2
- 262              		.cfi_endproc
- 263              	.LFE244:
- 265              		.section	.text.TIM3_IRQHandler,"ax",%progbits
- 266              		.align	1
- 267              		.global	TIM3_IRQHandler
- 268              		.syntax unified
- 269              		.thumb
- 270              		.thumb_func
- 271              		.fpu fpv4-sp-d16
- 273              	TIM3_IRQHandler:
- 274              	.LFB245:
+ 260 0014 00040240 		.word	1073873920
+ 261              		.cfi_endproc
+ 262              	.LFE244:
+ 264              		.section	.text.TIM2_IRQHandler,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	TIM2_IRQHandler
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.fpu fpv4-sp-d16
+ 272              	TIM2_IRQHandler:
+ 273              	.LFB245:
  223:Core/Src/stm32f4xx_it.c **** 
  224:Core/Src/stm32f4xx_it.c **** /**
- 225:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
+ 225:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM2 global interrupt.
  226:Core/Src/stm32f4xx_it.c ****   */
- 227:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
+ 227:Core/Src/stm32f4xx_it.c **** void TIM2_IRQHandler(void)
  228:Core/Src/stm32f4xx_it.c **** {
- 275              		.loc 1 228 1 is_stmt 1 view -0
- 276              		.cfi_startproc
- 277              		@ args = 0, pretend = 0, frame = 0
- 278              		@ frame_needed = 0, uses_anonymous_args = 0
- 279 0000 10B5     		push	{r4, lr}
- 280              	.LCFI2:
- 281              		.cfi_def_cfa_offset 8
- 282              		.cfi_offset 4, -8
- 283              		.cfi_offset 14, -4
- 229:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
- 230:Core/Src/stm32f4xx_it.c ****   HAL_ADC_Start(&hadc2);
- 284              		.loc 1 230 3 view .LVU34
- 285 0002 0A4C     		ldr	r4, .L22
- 286 0004 2046     		mov	r0, r4
- 287 0006 FFF7FEFF 		bl	HAL_ADC_Start
+ 274              		.loc 1 228 1 is_stmt 1 view -0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278 0000 08B5     		push	{r3, lr}
+ 279              	.LCFI2:
+ 280              		.cfi_def_cfa_offset 8
+ 281              		.cfi_offset 3, -8
+ 282              		.cfi_offset 14, -4
+ 229:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 0 */
+ 230:Core/Src/stm32f4xx_it.c ****   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+ 283              		.loc 1 230 3 view .LVU34
+ 284 0002 0122     		movs	r2, #1
+ 285 0004 0221     		movs	r1, #2
+ 286 0006 0348     		ldr	r0, .L22
+ 287 0008 FFF7FEFF 		bl	HAL_GPIO_WritePin
  288              	.LVL3:
- 231:Core/Src/stm32f4xx_it.c ****   HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
- 289              		.loc 1 231 3 view .LVU35
- 290 000a 4FF0FF31 		mov	r1, #-1
- 291 000e 2046     		mov	r0, r4
- 292 0010 FFF7FEFF 		bl	HAL_ADC_PollForConversion
- 293              	.LVL4:
- 232:Core/Src/stm32f4xx_it.c ****   envelope = HAL_ADC_GetValue(&hadc2);
- 294              		.loc 1 232 3 view .LVU36
- 295              		.loc 1 232 14 is_stmt 0 view .LVU37
- 296 0014 2046     		mov	r0, r4
- 297 0016 FFF7FEFF 		bl	HAL_ADC_GetValue
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 10
+ 231:Core/Src/stm32f4xx_it.c **** 
+ 232:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 0 */
+ 233:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim2);
+ 289              		.loc 1 233 3 view .LVU35
+ 290 000c 0248     		ldr	r0, .L22+4
+ 291 000e FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 292              	.LVL4:
+ 234:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM2_IRQn 1 */
+ 235:Core/Src/stm32f4xx_it.c **** 
+ 236:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM2_IRQn 1 */
+ 237:Core/Src/stm32f4xx_it.c **** }
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 10
 
 
- 298              	.LVL5:
- 299              		.loc 1 232 12 view .LVU38
- 300 001a 054B     		ldr	r3, .L22+4
- 301 001c 1880     		strh	r0, [r3]	@ movhi
- 233:Core/Src/stm32f4xx_it.c ****   HAL_ADC_Stop(&hadc2);
- 302              		.loc 1 233 3 is_stmt 1 view .LVU39
- 303 001e 2046     		mov	r0, r4
- 304 0020 FFF7FEFF 		bl	HAL_ADC_Stop
- 305              	.LVL6:
- 234:Core/Src/stm32f4xx_it.c **** 
- 235:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
- 236:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
- 306              		.loc 1 236 3 view .LVU40
- 307 0024 0348     		ldr	r0, .L22+8
- 308 0026 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 309              	.LVL7:
- 237:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
+ 293              		.loc 1 237 1 is_stmt 0 view .LVU36
+ 294 0012 08BD     		pop	{r3, pc}
+ 295              	.L23:
+ 296              		.align	2
+ 297              	.L22:
+ 298 0014 00000240 		.word	1073872896
+ 299 0018 00000000 		.word	htim2
+ 300              		.cfi_endproc
+ 301              	.LFE245:
+ 303              		.section	.text.TIM3_IRQHandler,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	TIM3_IRQHandler
+ 306              		.syntax unified
+ 307              		.thumb
+ 308              		.thumb_func
+ 309              		.fpu fpv4-sp-d16
+ 311              	TIM3_IRQHandler:
+ 312              	.LFB246:
  238:Core/Src/stm32f4xx_it.c **** 
- 239:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
- 240:Core/Src/stm32f4xx_it.c **** }
- 310              		.loc 1 240 1 is_stmt 0 view .LVU41
- 311 002a 10BD     		pop	{r4, pc}
- 312              	.L23:
- 313              		.align	2
- 314              	.L22:
- 315 002c 00000000 		.word	hadc2
- 316 0030 00000000 		.word	envelope
- 317 0034 00000000 		.word	htim3
- 318              		.cfi_endproc
- 319              	.LFE245:
- 321              		.section	.text.TIM4_IRQHandler,"ax",%progbits
- 322              		.align	1
- 323              		.global	TIM4_IRQHandler
- 324              		.syntax unified
- 325              		.thumb
- 326              		.thumb_func
- 327              		.fpu fpv4-sp-d16
- 329              	TIM4_IRQHandler:
- 330              	.LFB246:
- 241:Core/Src/stm32f4xx_it.c **** 
- 242:Core/Src/stm32f4xx_it.c **** /**
- 243:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
- 244:Core/Src/stm32f4xx_it.c ****   */
- 245:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
- 246:Core/Src/stm32f4xx_it.c **** {
- 331              		.loc 1 246 1 is_stmt 1 view -0
- 332              		.cfi_startproc
- 333              		@ args = 0, pretend = 0, frame = 56
- 334              		@ frame_needed = 0, uses_anonymous_args = 0
- 335 0000 00B5     		push	{lr}
- 336              	.LCFI3:
- 337              		.cfi_def_cfa_offset 4
- 338              		.cfi_offset 14, -4
- 339 0002 8FB0     		sub	sp, sp, #60
- 340              	.LCFI4:
- 341              		.cfi_def_cfa_offset 64
- 247:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 11
+ 239:Core/Src/stm32f4xx_it.c **** /**
+ 240:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM3 global interrupt.
+ 241:Core/Src/stm32f4xx_it.c ****   */
+ 242:Core/Src/stm32f4xx_it.c **** void TIM3_IRQHandler(void)
+ 243:Core/Src/stm32f4xx_it.c **** {
+ 313              		.loc 1 243 1 is_stmt 1 view -0
+ 314              		.cfi_startproc
+ 315              		@ args = 0, pretend = 0, frame = 0
+ 316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 317 0000 10B5     		push	{r4, lr}
+ 318              	.LCFI3:
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 4, -8
+ 321              		.cfi_offset 14, -4
+ 244:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 0 */
+ 245:Core/Src/stm32f4xx_it.c ****   HAL_ADC_Start(&hadc2);
+ 322              		.loc 1 245 3 view .LVU38
+ 323 0002 0A4C     		ldr	r4, .L26
+ 324 0004 2046     		mov	r0, r4
+ 325 0006 FFF7FEFF 		bl	HAL_ADC_Start
+ 326              	.LVL5:
+ 246:Core/Src/stm32f4xx_it.c ****   HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+ 327              		.loc 1 246 3 view .LVU39
+ 328 000a 4FF0FF31 		mov	r1, #-1
+ 329 000e 2046     		mov	r0, r4
+ 330 0010 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 331              	.LVL6:
+ 247:Core/Src/stm32f4xx_it.c ****   envelope = HAL_ADC_GetValue(&hadc2);
+ 332              		.loc 1 247 3 view .LVU40
+ 333              		.loc 1 247 14 is_stmt 0 view .LVU41
+ 334 0014 2046     		mov	r0, r4
+ 335 0016 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 336              	.LVL7:
+ 337              		.loc 1 247 12 view .LVU42
+ 338 001a 054B     		ldr	r3, .L26+4
+ 339 001c 1880     		strh	r0, [r3]	@ movhi
+ 248:Core/Src/stm32f4xx_it.c ****   HAL_ADC_Stop(&hadc2);
+ 340              		.loc 1 248 3 is_stmt 1 view .LVU43
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 11
 
 
- 248:Core/Src/stm32f4xx_it.c ****   //HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
- 249:Core/Src/stm32f4xx_it.c ****   uint8_t msg[50] = "Hello World!";
- 342              		.loc 1 249 3 view .LVU43
- 343              		.loc 1 249 11 is_stmt 0 view .LVU44
- 344 0004 0E4B     		ldr	r3, .L26
- 345 0006 0DF1040C 		add	ip, sp, #4
- 346 000a 0FCB     		ldm	r3, {r0, r1, r2, r3}
- 347 000c ACE80700 		stmia	ip!, {r0, r1, r2}
- 348 0010 8CF80030 		strb	r3, [ip]
- 349 0014 2522     		movs	r2, #37
- 350 0016 0021     		movs	r1, #0
- 351 0018 0DF11100 		add	r0, sp, #17
- 352 001c FFF7FEFF 		bl	memset
- 353              	.LVL8:
- 250:Core/Src/stm32f4xx_it.c ****   HAL_UART_Transmit(&huart4, msg, strlen(msg), HAL_MAX_DELAY);
- 354              		.loc 1 250 3 is_stmt 1 view .LVU45
- 355              		.loc 1 250 35 is_stmt 0 view .LVU46
- 356 0020 01A8     		add	r0, sp, #4
- 357 0022 FFF7FEFF 		bl	strlen
- 358              	.LVL9:
- 359              		.loc 1 250 3 view .LVU47
- 360 0026 4FF0FF33 		mov	r3, #-1
- 361 002a 82B2     		uxth	r2, r0
- 362 002c 01A9     		add	r1, sp, #4
- 363 002e 0548     		ldr	r0, .L26+4
- 364 0030 FFF7FEFF 		bl	HAL_UART_Transmit
- 365              	.LVL10:
- 251:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
- 252:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
- 366              		.loc 1 252 3 is_stmt 1 view .LVU48
- 367 0034 0448     		ldr	r0, .L26+8
- 368 0036 FFF7FEFF 		bl	HAL_TIM_IRQHandler
- 369              	.LVL11:
- 253:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
- 254:Core/Src/stm32f4xx_it.c **** 
- 255:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
- 256:Core/Src/stm32f4xx_it.c **** }
- 370              		.loc 1 256 1 is_stmt 0 view .LVU49
- 371 003a 0FB0     		add	sp, sp, #60
- 372              	.LCFI5:
- 373              		.cfi_def_cfa_offset 4
- 374              		@ sp needed
- 375 003c 5DF804FB 		ldr	pc, [sp], #4
- 376              	.L27:
- 377              		.align	2
- 378              	.L26:
- 379 0040 00000000 		.word	.LANCHOR0
- 380 0044 00000000 		.word	huart4
- 381 0048 00000000 		.word	htim4
- 382              		.cfi_endproc
- 383              	.LFE246:
- 385              		.section	.text.OTG_FS_IRQHandler,"ax",%progbits
- 386              		.align	1
- 387              		.global	OTG_FS_IRQHandler
- 388              		.syntax unified
- 389              		.thumb
- 390              		.thumb_func
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 12
+ 341 001e 2046     		mov	r0, r4
+ 342 0020 FFF7FEFF 		bl	HAL_ADC_Stop
+ 343              	.LVL8:
+ 249:Core/Src/stm32f4xx_it.c **** 
+ 250:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
+ 251:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
+ 344              		.loc 1 251 3 view .LVU44
+ 345 0024 0348     		ldr	r0, .L26+8
+ 346 0026 FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 347              	.LVL9:
+ 252:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM3_IRQn 1 */
+ 253:Core/Src/stm32f4xx_it.c **** 
+ 254:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM3_IRQn 1 */
+ 255:Core/Src/stm32f4xx_it.c **** }
+ 348              		.loc 1 255 1 is_stmt 0 view .LVU45
+ 349 002a 10BD     		pop	{r4, pc}
+ 350              	.L27:
+ 351              		.align	2
+ 352              	.L26:
+ 353 002c 00000000 		.word	hadc2
+ 354 0030 00000000 		.word	envelope
+ 355 0034 00000000 		.word	htim3
+ 356              		.cfi_endproc
+ 357              	.LFE246:
+ 359              		.section	.text.TIM4_IRQHandler,"ax",%progbits
+ 360              		.align	1
+ 361              		.global	TIM4_IRQHandler
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 365              		.fpu fpv4-sp-d16
+ 367              	TIM4_IRQHandler:
+ 368              	.LFB247:
+ 256:Core/Src/stm32f4xx_it.c **** 
+ 257:Core/Src/stm32f4xx_it.c **** /**
+ 258:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM4 global interrupt.
+ 259:Core/Src/stm32f4xx_it.c ****   */
+ 260:Core/Src/stm32f4xx_it.c **** void TIM4_IRQHandler(void)
+ 261:Core/Src/stm32f4xx_it.c **** {
+ 369              		.loc 1 261 1 is_stmt 1 view -0
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 0, uses_anonymous_args = 0
+ 373 0000 10B5     		push	{r4, lr}
+ 374              	.LCFI4:
+ 375              		.cfi_def_cfa_offset 8
+ 376              		.cfi_offset 4, -8
+ 377              		.cfi_offset 14, -4
+ 262:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 0 */
+ 263:Core/Src/stm32f4xx_it.c ****   HAL_UART_Transmit(&huart4, envelope_array, strlen(envelope_array), HAL_MAX_DELAY);
+ 378              		.loc 1 263 3 view .LVU47
+ 379              		.loc 1 263 46 is_stmt 0 view .LVU48
+ 380 0002 074C     		ldr	r4, .L30
+ 381 0004 2046     		mov	r0, r4
+ 382 0006 FFF7FEFF 		bl	strlen
+ 383              	.LVL10:
+ 384              		.loc 1 263 3 view .LVU49
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 12
 
 
- 391              		.fpu fpv4-sp-d16
- 393              	OTG_FS_IRQHandler:
- 394              	.LFB247:
- 257:Core/Src/stm32f4xx_it.c **** 
- 258:Core/Src/stm32f4xx_it.c **** /**
- 259:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USB On The Go FS global interrupt.
- 260:Core/Src/stm32f4xx_it.c ****   */
- 261:Core/Src/stm32f4xx_it.c **** void OTG_FS_IRQHandler(void)
- 262:Core/Src/stm32f4xx_it.c **** {
- 395              		.loc 1 262 1 is_stmt 1 view -0
- 396              		.cfi_startproc
- 397              		@ args = 0, pretend = 0, frame = 0
- 398              		@ frame_needed = 0, uses_anonymous_args = 0
- 399 0000 08B5     		push	{r3, lr}
- 400              	.LCFI6:
- 401              		.cfi_def_cfa_offset 8
- 402              		.cfi_offset 3, -8
- 403              		.cfi_offset 14, -4
- 263:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN OTG_FS_IRQn 0 */
- 264:Core/Src/stm32f4xx_it.c **** 
- 265:Core/Src/stm32f4xx_it.c ****   /* USER CODE END OTG_FS_IRQn 0 */
- 266:Core/Src/stm32f4xx_it.c ****   HAL_HCD_IRQHandler(&hhcd_USB_OTG_FS);
- 404              		.loc 1 266 3 view .LVU51
- 405 0002 0248     		ldr	r0, .L30
- 406 0004 FFF7FEFF 		bl	HAL_HCD_IRQHandler
- 407              	.LVL12:
- 267:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN OTG_FS_IRQn 1 */
- 268:Core/Src/stm32f4xx_it.c **** 
- 269:Core/Src/stm32f4xx_it.c ****   /* USER CODE END OTG_FS_IRQn 1 */
- 270:Core/Src/stm32f4xx_it.c **** }
- 408              		.loc 1 270 1 is_stmt 0 view .LVU52
- 409 0008 08BD     		pop	{r3, pc}
- 410              	.L31:
- 411 000a 00BF     		.align	2
- 412              	.L30:
- 413 000c 00000000 		.word	hhcd_USB_OTG_FS
- 414              		.cfi_endproc
- 415              	.LFE247:
- 417              		.section	.rodata
- 418              		.align	2
- 419              		.set	.LANCHOR0,. + 0
- 420              	.LC0:
- 421 0000 48656C6C 		.ascii	"Hello World!\000"
- 421      6F20576F 
- 421      726C6421 
- 421      00
- 422 000d 00000000 		.space	37
- 422      00000000 
- 422      00000000 
- 422      00000000 
- 422      00000000 
- 423              		.text
- 424              	.Letext0:
- 425              		.file 2 "/opt/homebrew/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-maj
- 426              		.file 3 "/opt/homebrew/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-maj
- 427              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 428              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 13
+ 385 000a 4FF0FF33 		mov	r3, #-1
+ 386 000e 82B2     		uxth	r2, r0
+ 387 0010 2146     		mov	r1, r4
+ 388 0012 0448     		ldr	r0, .L30+4
+ 389 0014 FFF7FEFF 		bl	HAL_UART_Transmit
+ 390              	.LVL11:
+ 264:Core/Src/stm32f4xx_it.c ****   //uint8_t msg[50] = "Hello World!";
+ 265:Core/Src/stm32f4xx_it.c ****   //HAL_UART_Transmit(&huart4, msg, strlen(msg), HAL_MAX_DELAY);
+ 266:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 0 */
+ 267:Core/Src/stm32f4xx_it.c ****   HAL_TIM_IRQHandler(&htim4);
+ 391              		.loc 1 267 3 is_stmt 1 view .LVU50
+ 392 0018 0348     		ldr	r0, .L30+8
+ 393 001a FFF7FEFF 		bl	HAL_TIM_IRQHandler
+ 394              	.LVL12:
+ 268:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN TIM4_IRQn 1 */
+ 269:Core/Src/stm32f4xx_it.c **** 
+ 270:Core/Src/stm32f4xx_it.c ****   /* USER CODE END TIM4_IRQn 1 */
+ 271:Core/Src/stm32f4xx_it.c **** }
+ 395              		.loc 1 271 1 is_stmt 0 view .LVU51
+ 396 001e 10BD     		pop	{r4, pc}
+ 397              	.L31:
+ 398              		.align	2
+ 399              	.L30:
+ 400 0020 00000000 		.word	envelope_array
+ 401 0024 00000000 		.word	huart4
+ 402 0028 00000000 		.word	htim4
+ 403              		.cfi_endproc
+ 404              	.LFE247:
+ 406              		.section	.text.OTG_FS_IRQHandler,"ax",%progbits
+ 407              		.align	1
+ 408              		.global	OTG_FS_IRQHandler
+ 409              		.syntax unified
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.fpu fpv4-sp-d16
+ 414              	OTG_FS_IRQHandler:
+ 415              	.LFB248:
+ 272:Core/Src/stm32f4xx_it.c **** 
+ 273:Core/Src/stm32f4xx_it.c **** /**
+ 274:Core/Src/stm32f4xx_it.c ****   * @brief This function handles USB On The Go FS global interrupt.
+ 275:Core/Src/stm32f4xx_it.c ****   */
+ 276:Core/Src/stm32f4xx_it.c **** void OTG_FS_IRQHandler(void)
+ 277:Core/Src/stm32f4xx_it.c **** {
+ 416              		.loc 1 277 1 is_stmt 1 view -0
+ 417              		.cfi_startproc
+ 418              		@ args = 0, pretend = 0, frame = 0
+ 419              		@ frame_needed = 0, uses_anonymous_args = 0
+ 420 0000 08B5     		push	{r3, lr}
+ 421              	.LCFI5:
+ 422              		.cfi_def_cfa_offset 8
+ 423              		.cfi_offset 3, -8
+ 424              		.cfi_offset 14, -4
+ 278:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN OTG_FS_IRQn 0 */
+ 279:Core/Src/stm32f4xx_it.c **** 
+ 280:Core/Src/stm32f4xx_it.c ****   /* USER CODE END OTG_FS_IRQn 0 */
+ 281:Core/Src/stm32f4xx_it.c ****   HAL_HCD_IRQHandler(&hhcd_USB_OTG_FS);
+ 425              		.loc 1 281 3 view .LVU53
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 13
 
 
- 429              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 430              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 431              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 432              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 433              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 434              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 435              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
- 436              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h"
- 437              		.file 14 "<built-in>"
- 438              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s 			page 14
+ 426 0002 0248     		ldr	r0, .L34
+ 427 0004 FFF7FEFF 		bl	HAL_HCD_IRQHandler
+ 428              	.LVL13:
+ 282:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN OTG_FS_IRQn 1 */
+ 283:Core/Src/stm32f4xx_it.c **** 
+ 284:Core/Src/stm32f4xx_it.c ****   /* USER CODE END OTG_FS_IRQn 1 */
+ 285:Core/Src/stm32f4xx_it.c **** }
+ 429              		.loc 1 285 1 is_stmt 0 view .LVU54
+ 430 0008 08BD     		pop	{r3, pc}
+ 431              	.L35:
+ 432 000a 00BF     		.align	2
+ 433              	.L34:
+ 434 000c 00000000 		.word	hhcd_USB_OTG_FS
+ 435              		.cfi_endproc
+ 436              	.LFE248:
+ 438              		.text
+ 439              	.Letext0:
+ 440              		.file 2 "/opt/homebrew/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-maj
+ 441              		.file 3 "/opt/homebrew/Caskroom/gcc-arm-embedded/10-2020-q4-major/gcc-arm-none-eabi-10-2020-q4-maj
+ 442              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 443              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 444              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 445              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 446              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 447              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 448              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 449              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 450              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
+ 451              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h"
+ 452              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 453              		.file 15 "<built-in>"
+ARM GAS  /var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f4xx_it.c
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:18     .text.NMI_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:44     .text.HardFault_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:68     .text.MemManage_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:92     .text.BusFault_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:116    .text.UsageFault_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:140    .text.SVC_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:160    .text.DebugMon_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:180    .text.PendSV_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:200    .text.SysTick_Handler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:227    .text.TIM2_IRQHandler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:234    .text.TIM2_IRQHandler:0000000000000000 TIM2_IRQHandler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:260    .text.TIM2_IRQHandler:0000000000000014 $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:266    .text.TIM3_IRQHandler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:273    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:315    .text.TIM3_IRQHandler:000000000000002c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:322    .text.TIM4_IRQHandler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:329    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:379    .text.TIM4_IRQHandler:0000000000000040 $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:386    .text.OTG_FS_IRQHandler:0000000000000000 $t
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:393    .text.OTG_FS_IRQHandler:0000000000000000 OTG_FS_IRQHandler
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:413    .text.OTG_FS_IRQHandler:000000000000000c $d
-/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccoQf4Gj.s:418    .rodata:0000000000000000 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:18     .text.NMI_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:26     .text.NMI_Handler:0000000000000000 NMI_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:44     .text.HardFault_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:51     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:68     .text.MemManage_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:75     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:92     .text.BusFault_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:99     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:116    .text.UsageFault_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:123    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:140    .text.SVC_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:147    .text.SVC_Handler:0000000000000000 SVC_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:160    .text.DebugMon_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:167    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:180    .text.PendSV_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:187    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:200    .text.SysTick_Handler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:207    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:227    .text.EXTI0_IRQHandler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:234    .text.EXTI0_IRQHandler:0000000000000000 EXTI0_IRQHandler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:260    .text.EXTI0_IRQHandler:0000000000000014 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:265    .text.TIM2_IRQHandler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:272    .text.TIM2_IRQHandler:0000000000000000 TIM2_IRQHandler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:298    .text.TIM2_IRQHandler:0000000000000014 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:304    .text.TIM3_IRQHandler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:311    .text.TIM3_IRQHandler:0000000000000000 TIM3_IRQHandler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:353    .text.TIM3_IRQHandler:000000000000002c $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:360    .text.TIM4_IRQHandler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:367    .text.TIM4_IRQHandler:0000000000000000 TIM4_IRQHandler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:400    .text.TIM4_IRQHandler:0000000000000020 $d
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:407    .text.OTG_FS_IRQHandler:0000000000000000 $t
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:414    .text.OTG_FS_IRQHandler:0000000000000000 OTG_FS_IRQHandler
+/var/folders/sd/sw6_rvdd1xd6sxxq8gkv_lph0000gn/T//ccVYJfee.s:434    .text.OTG_FS_IRQHandler:000000000000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick
 HAL_GPIO_WritePin
+HAL_GPIO_EXTI_IRQHandler
 HAL_TIM_IRQHandler
 htim2
 HAL_ADC_Start
@@ -780,9 +804,9 @@ HAL_ADC_Stop
 hadc2
 envelope
 htim3
-memset
 strlen
 HAL_UART_Transmit
+envelope_array
 huart4
 htim4
 HAL_HCD_IRQHandler
