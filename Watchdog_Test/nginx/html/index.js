@@ -17,35 +17,34 @@
         let humBtn = id("humidity_button");
         let alarmBtn = id("alarm_button");
         let cameraBtn = id("camera_button");
+        let noiseBtn = id("noise_button");
         let dashboardBtn = id("dashboard_button");
         tempBtn.addEventListener("click", showTempGraph);
         humBtn.addEventListener("click", showHumGraph);
         alarmBtn.addEventListener("click", showMotionGraph);
         cameraBtn.addEventListener("click", showCamVideo);
         dashboardBtn.addEventListener("click", showGraph);
+        noiseBtn.addEventListener("click", showNoiseGraph);
         //fetchData();
         displayCurrentNumber();
         //setInterval(reloadCurrent, 5000);
         //setInterval(reloadCurrent, 500000);
     }
 
-    function reloadCurrent() {
-        id("current_temp").src = id("current_temp").src;
-        id("current_humd").src = id("current_humd").src;
-    }
-
-    function reloadGraph() {
-        id("temp_frame").src = id("temp_frame").src;
-        id("humd_frame").src = id("humd_frame").src;
-        id("hardware_frame").src = id("hardware_frame").src;
-    }
-
     function showGraph() {
         window.location = "/grafana/d/RyOmzRCMz/sensor-dashboard?orgId=1";
     }
 
+    function showNoiseGraph() {
+        let allGraphs = qsa("#dashboard div");
+        for (let i = 0; i < allGraphs.length; i++) {
+            allGraphs[i].classList.add("hidden");
+        }
+        let graph = id("noise_Graph");
+        graph.classList.remove("hidden");
+    }
+
     function showTempGraph() {
-        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
@@ -55,7 +54,6 @@
     }
 
     function showMotionGraph() {
-        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286669920&to=1621373069920&panelId=10";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
@@ -65,7 +63,6 @@
     }
 
     function showHumGraph() {
-        //window.location = "/grafana/d-solo/RyOmzRCMz/sensor-dashboard?orgId=1&from=1621286683896&to=1621373083896&panelId=4";
         let allGraphs = qsa("#dashboard div");
         for (let i = 0; i < allGraphs.length; i++) {
             allGraphs[i].classList.add("hidden");
