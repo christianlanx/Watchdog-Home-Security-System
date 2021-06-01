@@ -16,6 +16,7 @@ scrape_configs:
     static_configs:
     - targets: ['bme280:5000']
   - job_name: sensorhub
+    scrape_interval: 10s
     metrics_path: /metrics
     static_configs:
     - targets: ['sensorhub:5001']
