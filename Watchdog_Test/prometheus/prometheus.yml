@@ -8,31 +8,22 @@ rule_files:
 
 scrape_configs:
   - job_name: prometheus
-    honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['prometheus:9090']
   - job_name: bme280
-    honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['bme280:5000']
   - job_name: sensorhub
-    scrape_interval: 1s
-    scrape_timeout: 1s
-    honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['sensorhub:5000']
   - job_name: node_exporter
-    honor_timestamps: true
     metrics_path: /metrics
     static_configs:
     - targets: ['node_exporter:9100']
   - job_name: opencv
-    scrape_interval: 1s
-    scrape_timeout: 1s
-    honor_timestamps: true
     metrics_path: /alert
     static_configs:
     - targets: ['opencv:8000']

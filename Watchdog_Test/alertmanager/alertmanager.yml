@@ -2,8 +2,8 @@ route:
   # TODO: Configure the alerts to be less annoying
   group_by: [Alertname]
   receiver: multi-webhook
-  group_wait: 20s
-  group_interval: 1m
+  group_wait: 0s
+  group_interval: 5s
   repeat_interval: 5m
 
 # The directory from which notification templates are read.
@@ -14,4 +14,6 @@ receivers:
 - name: multi-webhook
   webhook_configs:
   - url: http://alertmanager-discord:9094
+    send_resolved: false
   - url: http://twilio:5152
+    send_resolved: false
