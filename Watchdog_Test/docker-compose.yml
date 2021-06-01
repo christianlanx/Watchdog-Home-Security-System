@@ -64,12 +64,12 @@ services:
     #   - backend
     container_name: bme280
 
-#  sensorhub:
-#    build: ./sensorHubPy
-#    privileged: true
-#    ports:
-#      - "5000:5000"
-#    container_name: sensorhub
+  sensorhub:
+    build: ./sensorHubPy
+    privileged: true
+    ports:
+      - "5000:5000"
+    container_name: sensorhub
   
   node_exporter:
     build: ./node_exporter
