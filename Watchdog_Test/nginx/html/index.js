@@ -1,11 +1,6 @@
 /**
  * Name: Joseph Chao
- * Date: 10/29
- * Section: CSE 154 AJ, Lauren Krieger
- *
- * -- your description of what this file does here --
- * Do not keep comments from this template in any work you submit (functions included under "Helper
- * functions" are an exception, you may keep the function names/comments of id/qs/qsa/gen)
+ * Date: 2021/6/7
  */
  "use strict";
 
