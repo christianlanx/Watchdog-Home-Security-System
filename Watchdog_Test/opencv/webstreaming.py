@@ -1,3 +1,12 @@
+'''
+Author: Jamie Thorup
+Name: openCV webstream
+Function:
+    - Provides camera stream using Raspberry Pi's NoIR camera and openCV
+    - Applies basic motion detection to the camera stream
+    - Serves data Prometheus when motion has been detected from the camera stream
+'''
+
 # import packages
 # from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
@@ -68,7 +77,6 @@ outputFrame = None
 lock = threading.Lock()
 
 # keeps track of the cumulative sum of frames where motion was detected every 60 seconds
-# mot_det_flag = 0
 mot_det_sum = 0
 
 # set content type for alert flag's HTTP response
@@ -87,6 +95,7 @@ app = Flask(__name__)
 vs = cv2.VideoCapture(0)
 vs.set(3, 640)
 vs.set(4, 480)
+vs.set(cv2.CAP_PROP_HUE, 2.0)
 
 # vs = VideoStream(src=0).start()
 time.sleep(2.0)
@@ -154,16 +163,8 @@ def detect_motion(frameCount):
                 cv2.rectangle(frame, (minX, minY), (maxX, maxY),
                     (0, 0, 255), 2)
 
-                # set the alert flag, which updates the Prometheus Gauge in .../alert/
-                print("Motion detected -- current cum. sum:\t", mot_det_sum)
-                # mot_det_flag = 1
-
                 # increment sum by 1 i.e. update the cumulative number of frames in which we detected motion
                 mot_det_sum += 1
-
-            # else:
-            #     # reset motion detection flag
-            #     # mot_det_flag = 0
 
         # update the background model and increment the total number
         # of frames read thus far
@@ -211,13 +212,12 @@ def video_feed():
 @app.route("/alert", methods=['GET'])
 def alert():
     # return the response generated along with the specific media
-    # return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
-    # OPENCV_MOTIONDETECT.set(mot_det_flag) # this shouldn't work with the OPENCV_MOTIONDETECT being a gauge
-
     global mot_det_sum      # let the script make changes the variable defined outside its scope
 
     OPENCV_MOTIONDETECT.labels(device_name=device_name).set(mot_det_sum)    # set gauge to value of our cumulative sum
-    mot_det_sum = 0                         # reset the cumulative sum value
+
+    mot_det_sum = 0     # reset the cumulative sum value
+
     return Response(generate_latest(), mimetype=CONTENT_TYPE_LATEST)
 
 # check to see if this is the main thread of execution
