@@ -3,19 +3,15 @@
 ### Christian Lancaster, Jamie Thorup, Joseph Chao, Morgan McCandless, Rouen de la O
 
 ## Watchdog Home Security System
-
-# TODO: Update fritzing diagram and description
-
-### Delete some of the following
-
-This is a simple project that prints the data from the BME280 sensor connected to a Raspberry Pi running [balena](https://balena.io).
-
-The sensor BME280 is a low-cost environmental sensor that senses temperature, humidity and pressure and can be easily connected to a Raspberry Pi or other devices.
+Watchdog is an IoT monitoring device that monitors multiple sensors and alerts the user to anomalous conditions.
 
 ### Getting started
 
-* Raspberry Pi 3, 4 or [balenaFin](https://www.balena.io/fin/).
+* Raspberry Pi 4
 * BME280 sensor [example](https://es.aliexpress.com/item/1005001621866431.html)
+* Sparkfun noise sensor
+* STM 32 Discovery board
+* Raspberry Pi Camera
 
 * A balenaCloud account ([sign up here](https://dashboard.balena-cloud.com/))
 * [balenaEtcher](https://balena.io/etcher)
@@ -27,6 +23,8 @@ Once all of this is ready, you are able to deploy this repository following inst
 To connect the BME280 with the Raspberry Pi follow this diagram connections below:
 
 ![alt text](https://github.com/balena-io-playground/python-bme280/blob/main/bme280-raspberrypi4.png)
+
+To connect the Sensor hub with the Raspberry Pi, follow the below diagram
 
 ### Deploy the code
 
@@ -47,9 +45,3 @@ If you are a balena CLI expert, feel free to use balena CLI.
 - Clone this repository to your local workspace.
 - Using [Balena CLI](https://www.balena.io/docs/reference/cli/), push the code with `balena push <application-name>`
 - See the magic happening, your device is getting updated 🌟Over-The-Air🌟!
-
-### Attribution
-
-- This is a code made by David Tischler from balena during the IoT Happy Hour using this code from pypi [https://pypi.org/project/RPi.bme280/](https://pypi.org/project/RPi.bme280/)
-- This code has been presented at the PyDay Barcelona 2020.
-
